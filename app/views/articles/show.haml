@@ -1,0 +1,53 @@
+%h1 Artikel anzeigen
+%p
+  Name:
+  %br/
+  %strong= @article.name
+%p
+  Nummer:
+  %br/
+  %strong= @article.number
+%p
+  Notiz:
+  %br/
+  %strong= @article.note
+%p
+  Herstellerin:
+  %br/
+  %strong= @article.manufacturer
+%p
+  Herkunft:
+  %br/
+  %strong= @article.origin
+%p
+  Einheit:
+  %br/
+  %strong= @article.unit
+%p
+  Preis:
+  %br/
+  %strong= @article.price
+%p
+  Steuer:
+  %br/
+  %strong= @article.tax
+%p
+  Pfand:
+  %br/
+  %strong= @article.deposit
+%p
+  Gebindegröße:
+  %br/
+  %strong= @article.unit_quantity
+%p
+  Rabattmenge:
+  %br/
+  %strong= @article.scale_quantity
+%p
+  Rabattpreis:
+  %br/
+  %strong= @article.scale_price
+
+= link_to 'Bearbeiten', edit_article_path(@article.supplier, @article)
+|
+= link_to 'Zurück', articles_path(@article.supplier)

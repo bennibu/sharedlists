@@ -1,0 +1,21 @@
+%h1 Lieferanten
+%table
+  %tr
+    %th Name
+    %th Adresse
+    %th Telefon
+    %th Liefertage
+    %th Notiz
+    %th
+  - for supplier in @suppliers
+    %tr
+      %td= link_to supplier.name, supplier_path(supplier)
+      %td=h supplier.address
+      %td=h supplier.phone
+      %td=h supplier.delivery_days
+      %td=h supplier.note
+      %td= link_to  supplier.articles.size.to_s + ' Artikel', articles_url(supplier)
+
+%br/
+= link_to 'Neuer Lieferant', new_supplier_url
+    

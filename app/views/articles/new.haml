@@ -1,0 +1,6 @@
+%h1 Neuer Artikel
+= error_messages_for :article
+- form_for(:article, :url => articles_path) do |@f|
+  = render :partial => 'form'
+
+= link_to 'zurück', articles_path(@article.supplier)

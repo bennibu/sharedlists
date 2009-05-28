@@ -1,0 +1,26 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  name: Sample Supplier
+  delivery_days: di, do
+  url: www.samplesupplier.com
+  note:
+  fax: 0123-555556
+  phone: 0123-555555
+  phone2:
+  address: Organic City
+  email: info@supplier.net
+  
+two:
+  id: 2
+  name: Backstube
+  delivery_days: Mo-Sa
+  updated_on: 2007-11-01 18:29:30
+  url: http://www.die-backstube.de/
+  note:
+  fax: 03338-703802
+  phone: +49-6051-8366-0
+  phone2: 1123 123 123
+  address: "Gradestraße 92, 12347 Berlin"
+  email: brot@backstube.de
+  

@@ -1,0 +1,18 @@
+%h1 Fehler beim hochladen
+%p 
+  = @new_counter
+  wurden neu gespeichert,
+  = @updated_counter
+  aktualisiert und
+  = @outlisted_counter
+  wurden ausgelistet.
+%p bei folgende Artikeln sind Fehler aufgetreten:
+%ul
+  - for article in @invalid_articles
+    %li
+      = article.name
+      %ul
+        - article.errors.each do |attr, msg|
+          %li= attr + ": " + msg
+ 
+%p= link_to 'Artikel', articles_url(@supplier)

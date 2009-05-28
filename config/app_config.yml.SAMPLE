@@ -1,0 +1,8 @@
+development:
+  admin_password: secret
+
+test:
+  admin_password: secret
+
+production:
+  admin_password: secret

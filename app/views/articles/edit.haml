@@ -1,0 +1,8 @@
+%h1 Artikel bearbeiten
+= error_messages_for :article
+- form_for(:article, :url => article_path(@article.supplier, @article), :html => { :method => :put }) do |@f|
+  = render :partial => 'form'
+
+= link_to 'Show', supplier_article_path(@article.supplier, @article)
+|
+= link_to 'zurück', articles_path(@article.supplier)

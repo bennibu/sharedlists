@@ -1,0 +1,47 @@
+%h1 Lieferantin anzeigen
+%p
+  Name:
+  %br/
+  %strong= @supplier.name
+%p
+  Adresse:
+  %br/
+  %strong= @supplier.address
+%p
+  Telefon 1:
+  %br/
+  %strong= @supplier.phone
+%p
+  Telefon 2:
+  %br/
+  %strong= @supplier.phone2
+%p
+  Fax:
+  %br/
+  %strong= @supplier.fax
+%p
+  E-Mail:
+  %br/
+  %strong= @supplier.email
+%p
+  Webseite:
+  %br/
+  %strong= @supplier.url
+%p
+  Liefertage:
+  %br/
+  %strong= @supplier.delivery_days
+- unless @supplier.lists.blank?
+  %p
+    Teillisten:
+    %br/
+    %strong= @supplier.lists.inspect
+  Notiz:
+  %br/
+  %strong= @supplier.note
+
+= link_to 'Bearbeiten', edit_supplier_path(@supplier)
+|
+= link_to 'Löschen', supplier_path(@supplier), :confirm => 'Bist du sicher?', :method => :delete
+|
+= link_to 'Zurück', suppliers_path

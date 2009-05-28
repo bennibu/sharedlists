@@ -1,0 +1,38 @@
+%p
+  Name:
+  %br/
+  = @f.text_field :name
+%p
+  Adresse:
+  %br/
+  = @f.text_field :address
+%p
+  Telefon 1:
+  %br/
+  = @f.text_field :phone
+%p
+  Telefon 2:
+  %br/
+  = @f.text_field :phone2
+%p
+  Fax:
+  %br/
+  = @f.text_field :fax
+%p
+  E-Mail:
+  %br/
+  = @f.text_field :email
+%p
+  Webseite:
+  %br/
+  = @f.text_field :url
+%p
+  Liefertage:
+  %br/
+  = @f.text_field :delivery_days
+%p
+  Notiz:
+  %br/
+  = @f.text_area :note
+
+%p= submit_tag "Speichern"

@@ -1,0 +1,9 @@
+host: '213.73.72.242'
+user: ''
+password: ''
+local_dir: 'lib/bnn_files/'
+filenames:
+  - 'PLF.BNN'
+  - 'PL_DROG.BNN'
+  - 'PL_FOOD.BNN'
+  - 'PL_Frisch.BNN'

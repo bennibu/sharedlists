@@ -1,0 +1,50 @@
+%p
+  Name:
+  %br/
+  = @f.text_field :name
+%p
+  Nummer:
+  %br/
+  = @f.text_field :number
+%p
+  Notiz:
+  %br/
+  = @f.text_field :note
+%p
+  Herstellerin:
+  %br/
+  = @f.text_field :manufacturer
+%p
+  Herkunft:
+  %br/
+  = @f.text_field :origin
+%p
+  Einheit:
+  %br/
+  = @f.text_field :unit
+%p
+  Preis:
+  %br/
+  = @f.text_field :price
+%p
+  Steuer:
+  %br/
+  = @f.text_field :tax
+%p
+  Pfand:
+  %br/
+  = @f.text_field :deposit
+%p
+  Gebindegröße:
+  %br/
+  = @f.text_field :unit_quantity
+%p
+  Rabattmenge:
+  %br/
+  = @f.text_field :scale_quantity
+%p
+  Rabattpreis:
+  %br/
+  = @f.text_field :scale_price
+%p= submit_tag "Speichern"
+= @f.hidden_field :supplier_id

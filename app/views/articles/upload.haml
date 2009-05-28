@@ -1,0 +1,23 @@
+%h1 
+  Artikel für 
+  = @supplier.name 
+  hochladen
+%p
+  %i Bitte (BNN-)Datei zum upload auswählen
+#uploadArticles.uploadForm
+  - form_for(:articles, :url => {:controller => 'articles', :action => 'parse'}, :html => { :multipart => true }) do |form|
+    %p
+      Upload: 
+      = form.file_field("file")
+    %p
+      Datei-Format auswählen:
+      %select{:name => 'type'}
+        = options_for_select({"FoodSoft-Datei" => "foodsoft", "BNN-Datei" => "bnn"}, "foodsoft")
+    %p
+      Zeichenkodierung:
+      %select{:name => 'character_set'}
+        = options_for_select({"UTF-8" => "utf8", "IBM850 (Terra)" => "850", "ISO-8859-15 (Ökotpia)" => "ISO-8859-15"}, "utf8")
+        
+    = submit_tag("Artikel hochladen")
+    = hidden_field_tag :supplier, @supplier.id
+%p= link_to 'zurück', articles_url(@supplier)

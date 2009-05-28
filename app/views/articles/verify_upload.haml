@@ -1,0 +1,45 @@
+%h1 hochgeladenen Artikel überprüfen
+%p
+  %i 
+    Bitte überprüfe die Daten aus der Datei und wähle unten den Lieferanten aus.
+    %br/
+    Artikel dessen Namen schon in der Datenbank vorhanden sind, werden ignoriert.
+
+- form_tag(:action => 'createArticlesFromFile') do
+  %table.list
+    %tr
+      %th Änderungsk.
+      %th Name
+      %th Nummer
+      %th Notiz
+      %th Hersteller
+      %th Herkunft
+      %th Einheit
+      %th Preis
+      %th MwSt.
+      %th Pfand
+      %th Geb.Gr.
+      %th RabattMeng.
+      %th RabattPreis
+    - for @article in @articles      
+      %tr
+        %td= text_field 'article[]', 'changing', :size => 3
+        %td= text_field 'article[]', 'name', :size => 0
+        %td= text_field 'article[]', 'number', :size => 5
+        %td= text_field 'article[]', 'note', :size => 5
+        %td= text_field 'article[]', 'manufacturer', :size => 5
+        %td= text_field 'article[]', 'origin', :size => 5
+        %td= text_field 'article[]', 'unit', :size => 5
+        %td= text_field 'article[]', 'price', :size => 5
+        %td= text_field 'article[]', 'tax', :size => 5
+        %td= text_field 'article[]', 'deposit', :size => 5
+        %td= text_field 'article[]', 'unit_quantity', :size => 5
+        %td= text_field 'article[]', 'scale_quantity', :size => 5
+        %td= text_field 'article[]', 'scale_price', :size => 5
+  %p
+    Lieferanten auswählen: 
+    = select('supplier', 'id', Supplier.find(:all).collect {|s| [ s.name, s.id ] }, :selected => nil)
+    = submit_tag 'Artikel speichern'
+  %p
+  = link_to 'zurück', :action => 'uploadArticles'
+      

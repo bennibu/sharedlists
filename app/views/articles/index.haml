@@ -1,0 +1,57 @@
+%h1
+  = @supplier.articles.size
+  Artikel von 
+  = @supplier.name
+
+%p
+  Aktionen:
+  = link_to 'Alle löschen', destroy_all_articles_url(@supplier), :method => :delete, :confirm => "Willst Du wirklich alle löschen?"
+  |
+  = link_to "Artikel hochladen", upload_articles_url(@supplier)
+  |
+  = link_to 'Neuer Artikel', new_article_url(@supplier)
+  |
+  = link_to "zurück", suppliers_url
+  
+#filter{:style => "float:left;padding-right:1em;"}
+  - form_tag articles_url(@supplier), :method => :get do
+    Suchen im Namen:
+    = text_field_tag :filter, @filter
+    = submit_tag 'Suchen'
+#sort{:style => "float:left;padding-right:1em;"}
+  - form_tag articles_url(@supplier), :method => :get do
+    Sortieren nach: aktualisiert
+    = check_box_tag :order, "updated_on", @updated_on, {:onclick => "submit();"}
+|
+= link_to 'Filter zurücksetzen',articles_url(@supplier)
+  
+#list{:style => "clear:both;padding-top:1em"}
+  %p= will_paginate @articles
+  %table
+    %tr
+      %th Name
+      %th Nummer
+      %th Notiz
+      %th Herstellerin
+      %th Herkunft
+      %th Einheit
+      %th Preis
+      %th Steuer
+      %th Pfand
+      %th Gebindegröße
+    - for article in @articles
+      %tr
+        %td=h article.name
+        %td=h article.number
+        %td=h article.note
+        %td=h article.manufacturer
+        %td=h article.origin
+        %td=h article.unit
+        %td=h article.price
+        %td=h article.tax
+        %td=h article.deposit
+        %td=h article.unit_quantity
+        %th= link_to 'Anzeigen', article_url(@supplier, article)
+        %th= link_to 'Bearbeiten', edit_article_url(article.supplier, article)
+        %th= link_to 'Löschen', article_url(@supplier, article), :confirm => 'Bist du sicher?', :method => :delete
+  %p= will_paginate @articles
