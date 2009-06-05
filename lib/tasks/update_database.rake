@@ -1,23 +1,30 @@
 
 # parses bnn files and imports article
-def import_files(filenames, supplier_id)
+def import_files(filenames, supplier_name, options = {})
+
+  options[:format] ||= 'bnn'
+  options[:encoding] ||= '850'
+
   # load terra-object
-  supplier = Supplier.find(supplier_id)
+  supplier = Supplier.find_by_name(supplier_name)
+  raise "Can't find Supplier #{supplier_name}!" if supplier.nil?
   
   puts "parses files and imports articles ..."
   filenames.each do |file|
     puts "parse #{file}..."
     outlisted_counter, new_counter, updated_counter, invalid_articles = 
-          supplier.update_articles_from_file(File.open("#{RAILS_ROOT}/tmp/#{file}", "r").read, 'bnn', file, '850')
+          supplier.update_articles_from_file(File.open("#{RAILS_ROOT}/tmp/#{file}", "r").read, options[:format], file, options[:encoding])
     puts "Summary for #{file}:"
     puts "new: #{new_counter}"
     puts "updated: #{updated_counter}"
     puts "outlisted: #{outlisted_counter}"
     puts "invalid: #{invalid_articles.size}"
   end
-  
-  puts "missing bnn-codes:"
-  $missing_bnn_codes.uniq.sort.each {|code| puts code }
+
+  if $missing_bnn_codes
+    puts "missing bnn-codes:"
+    $missing_bnn_codes.uniq.sort.each {|code| puts code }
+  end
 end
 
 namespace :terra do
@@ -27,7 +34,7 @@ namespace :terra do
     Dir.chdir("#{RAILS_ROOT}/tmp/")
     
     puts "parses and imports articles"
-    import_files(Dir["*.BNN"], 1)
+    import_files(Dir["*.BNN"], "Terra Naturkost Handels KG")
     
     puts "import_all finished"
   end
@@ -64,9 +71,22 @@ namespace :midgard do
     Dir.chdir("#{RAILS_ROOT}/tmp/")
     
     puts "parse and import articles"
-    import_files(Dir["*.BNN"], 3)
+    import_files(Dir["*.BNN"], "Midgard")
     
     
     puts "import is finished"
   end
+end
+
+namespace :borkenstein do
+  desc "parse all midgard files in #{RAILS_ROOT}/tmp/. import the articles"
+  task :import_all => :environment do
+    Dir.chdir("#{RAILS_ROOT}/tmp/")
+
+    puts "parse and import articles"
+    import_files(Dir["*3.1.CSV"], "Borkenstein", :format => 'borkenstein', :encoding => 'LATIN1')
+    
+    puts "import is finished"
+  end
+  
 end

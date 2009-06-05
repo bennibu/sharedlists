@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: suppliers
+#
+#  id            :integer(4)      not null, primary key
+#  name          :string(255)     not null
+#  address       :string(255)     not null
+#  phone         :string(255)     not null
+#  phone2        :string(255)
+#  fax           :string(255)
+#  email         :string(255)
+#  url           :string(255)
+#  delivery_days :string(255)
+#  note          :string(255)
+#  created_on    :datetime
+#  updated_on    :datetime
+#  lists         :string(255)
+#
+
 class Supplier < ActiveRecord::Base
   has_many :articles, :dependent => :destroy
   
@@ -16,14 +35,22 @@ class Supplier < ActiveRecord::Base
     
     invalid_articles = Array.new
     outlisted_counter, new_counter, updated_counter = 0, 0, 0
-    # build listname, e.g. 'PL_FOOD.BNN' becomes 'pl_food' 
-    listname = filename.split('.')[0].downcase if filename
+    
     case type
     when 'foodsoft'
       new_or_updated_articles, outlisted_articles = FoodsoftFile::parse(data)
+
     when 'bnn'
+      # build listname, e.g. 'PL_FOOD.BNN' becomes 'pl_food'
+      listname = filename.split('.').first.downcase
+
       new_or_updated_articles, outlisted_articles, specials = BnnFile::parse(data, listname)
       # delete old articles from same list
+      Article.delete_all "list = '#{listname}' AND supplier_id = #{self.id}"
+
+    when 'borkenstein'
+      listname = filename.split('3.1.CSV').first
+      new_or_updated_articles, outlisted_articles = Borkenstein::parse(data, listname)
       Article.delete_all "list = '#{listname}' AND supplier_id = #{self.id}"
     end
     
