@@ -53,7 +53,7 @@ Rails::Initializer.run do |config|
   # See Rails::Configuration for more options
   config.active_record.colorize_logging = false
   
-  config.action_controller.session = { :session_key => "_sharedLists_session", :secret => "sjkdfhfhl234987sgbhlkh25570ahl345ß8ajö2öaß092354" }
+  config.action_controller.session = { :key => "_sharedLists_session", :secret => "sjkdfhfhl234987sgbhlkh25570ahl345ß8ajö2öaß092354" }
 end
 
 # Add new mime types for use in respond_to blocks:
