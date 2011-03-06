@@ -34,5 +34,21 @@
   Notiz:
   %br/
   = @f.text_area :note
+%p
+  Synchronisiere BNN Dateien:
+  %br/
+  = @f.boolean :bnn_sync
+%p
+  BNN host:
+  %br/
+  = @f.text_field :bnn_host
+%p
+  BNN user:
+  %br/
+  = @f.text_field :bnn_user
+%p
+  BNN password:
+  %br/
+  = @f.text_field :bnn_password
 
 %p= submit_tag "Speichern"

@@ -1,3 +1,14 @@
+require File.dirname(__FILE__) + '/../test_helper'
+
+class SupplierTest < Test::Unit::TestCase
+  fixtures :suppliers
+
+  # Replace this with your real tests.
+  def test_truth
+    assert true
+  end
+end
+
 # == Schema Information
 #
 # Table name: suppliers
@@ -15,15 +26,9 @@
 #  created_on    :datetime
 #  updated_on    :datetime
 #  lists         :string(255)
+#  bnn_sync      :boolean(1)      default(FALSE)
+#  bnn_host      :string(255)
+#  bnn_user      :string(255)
+#  bnn_password  :string(255)
 #
 
-require File.dirname(__FILE__) + '/../test_helper'
-
-class SupplierTest < Test::Unit::TestCase
-  fixtures :suppliers
-
-  # Replace this with your real tests.
-  def test_truth
-    assert true
-  end
-end

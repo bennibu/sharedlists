@@ -1,29 +1,34 @@
-# == Schema Information
-#
-# Table name: suppliers
-#
-#  id            :integer(4)      not null, primary key
-#  name          :string(255)     not null
-#  address       :string(255)     not null
-#  phone         :string(255)     not null
-#  phone2        :string(255)
-#  fax           :string(255)
-#  email         :string(255)
-#  url           :string(255)
-#  delivery_days :string(255)
-#  note          :string(255)
-#  created_on    :datetime
-#  updated_on    :datetime
-#  lists         :string(255)
-#
-
 class Supplier < ActiveRecord::Base
   has_many :articles, :dependent => :destroy
   
   # save lists in an array in database
   serialize :lists
   
-  #TODO: validation ...
+  validates_presence_of :name, :address, :phone
+  validates_presence_of :bnn_host, :bnn_user, :bnn_password, :bnn_sync, :if => Proc.new { |s| s.bnn_sync }
+
+  def bnn_path
+    File.join(Rails.root, "assets/bnn_files/", id.to_s)
+  end
+
+  def sync_bnn_files
+    new_files = FtpSync::sync(self)
+
+    unless new_files.empty?
+      logger.info "New bnn files for #{name}: #{new_files.inspect}"
+
+      new_files.each do |file|
+        logger.debug "parse #{file}..."
+        outlisted_counter, new_counter, updated_counter, invalid_articles =
+            update_articles_from_file(File.read(File.join(bnn_path,file)), 'bnn', file, '850')
+        logger.info "#{file} succesful parsed: #{new_counter} new, #{updated_counter} updated, #{outlisted_counter} outlisted, #{invalid_articles.size} invalid"
+      end
+
+      if $missing_bnn_codes
+        logger.info "missing bnn-codes: #{$missing_bnn_codes.uniq.sort.join(", ")}"
+      end
+    end
+  end
   
   # parses file and updates articles
   # returns counter for outlisted, new and updated articles
@@ -94,3 +99,27 @@ class Supplier < ActiveRecord::Base
     return [outlisted_counter, new_counter, updated_counter, invalid_articles]
   end
 end
+
+# == Schema Information
+#
+# Table name: suppliers
+#
+#  id            :integer(4)      not null, primary key
+#  name          :string(255)     not null
+#  address       :string(255)     not null
+#  phone         :string(255)     not null
+#  phone2        :string(255)
+#  fax           :string(255)
+#  email         :string(255)
+#  url           :string(255)
+#  delivery_days :string(255)
+#  note          :string(255)
+#  created_on    :datetime
+#  updated_on    :datetime
+#  lists         :string(255)
+#  bnn_sync      :boolean(1)      default(FALSE)
+#  bnn_host      :string(255)
+#  bnn_user      :string(255)
+#  bnn_password  :string(255)
+#
+
