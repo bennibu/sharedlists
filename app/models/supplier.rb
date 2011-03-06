@@ -7,6 +7,8 @@ class Supplier < ActiveRecord::Base
   validates_presence_of :name, :address, :phone
   validates_presence_of :bnn_host, :bnn_user, :bnn_password, :bnn_sync, :if => Proc.new { |s| s.bnn_sync }
 
+  named_scope :bnn_sync, :conditions => {:bnn_sync => true}
+  
   def bnn_path
     File.join(Rails.root, "assets/bnn_files/", id.to_s)
   end
