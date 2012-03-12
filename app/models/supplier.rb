@@ -1,5 +1,7 @@
 class Supplier < ActiveRecord::Base
   has_many :articles, :dependent => :destroy
+  has_many :user_accesses, :dependent => :destroy
+  has_many :users, :through => :user_accesses
   
   # save lists in an array in database
   serialize :lists

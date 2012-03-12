@@ -1,4 +1,7 @@
 class SuppliersController < ApplicationController
+
+  before_filter :authenticate_supplier_admin!, :except => :index
+
   # GET /suppliers
   # GET /suppliers.xml
   def index

@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  has_many :user_accesses, :dependent => :destroy
+  has_many :suppliers, :through => :user_accesses
+
   attr_accessible :email, :password, :password_confirmation
 
   attr_accessor :password

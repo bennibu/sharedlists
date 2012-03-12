@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312184452) do
+ActiveRecord::Schema.define(:version => 20120312190323) do
 
   create_table "articles", :force => true do |t|
     t.string   "name",                                                          :null => false
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(:version => 20120312184452) do
   end
 
   add_index "suppliers", ["name"], :name => "index_suppliers_on_name", :unique => true
+
+  create_table "user_accesses", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "supplier_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_accesses", ["supplier_id"], :name => "index_user_accesses_on_supplier_id"
+  add_index "user_accesses", ["user_id", "supplier_id"], :name => "index_user_accesses_on_user_id_and_supplier_id"
+  add_index "user_accesses", ["user_id"], :name => "index_user_accesses_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"
