@@ -8,3 +8,4 @@ config/environments/development.rb
 capfile
 assets/**
 .idea
+.rbenv-version
