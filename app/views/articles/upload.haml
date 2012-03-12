@@ -19,5 +19,5 @@
         = options_for_select({"UTF-8" => "utf8", "IBM850 (Terra)" => "850", "ISO-8859-15 (Ökotpia)" => "ISO-8859-15"}, "utf8")
         
     = submit_tag("Artikel hochladen")
-    = hidden_field_tag :supplier, @supplier.id
+    = hidden_field_tag :supplier_id, @supplier.id
 %p= link_to 'zurück', articles_url(@supplier)

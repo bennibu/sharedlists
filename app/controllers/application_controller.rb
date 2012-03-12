@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_supplier_admin!
     @supplier = Supplier.find((params[:supplier_id] || params[:id]))
-    if UserAccess.first(:conditions => {:supplier_id => @supplier, :user_id => current_user}).nil?
+    unless current_user.has_access_to?(@supplier)
       flash[:error] = "Not authorized!"
       redirect_to root_url
     end
