@@ -11,6 +11,7 @@ GEM
     activeresource (2.3.11)
       activesupport (= 2.3.11)
     activesupport (2.3.11)
+    bcrypt-ruby (3.0.1)
     fastercsv (1.5.4)
     haml (3.0.25)
     mysql (2.8.1)
@@ -28,6 +29,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby
   fastercsv
   haml
   mysql

@@ -15,9 +15,13 @@ ActionController::Routing::Routes.draw do |map|
 
   # Allow downloading Web Service WSDL as a file with an extension
   # instead of a file named 'wsdl'
+
+  map.connnect "log_in", :controller => 'sessions', :action => 'new', :as => "log_in"
+  map.connnect "log_out", :controller => 'sessions', :action => 'destroy', :as => "log_out"
+  map.resources :sessions, :only => [:new, :create, :destroy]
   
-  map.connect '', :controller => "suppliers"
-  
+  map.root :controller => 'suppliers'
+
   map.resources :suppliers do |suppliers|
     suppliers.resources :articles, :name_prefix => nil, 
                                    :collection => { :destroy_all => :delete,
