@@ -100,7 +100,7 @@ class ArticlesController < ApplicationController
   def parse
     begin
       @outlisted_counter, @new_counter, @updated_counter, @invalid_articles =
-          @supplier.update_articles_from_file(params[:articles]["file"].read, params[:type], params[:articles]["file"].original_filename, params[:character_set])
+          @supplier.update_articles_from_file(params[:articles]["file"].read, params[:type], params[:character_set])
           
       if @invalid_articles.empty?
         flash[:notice] = "Hochladen erfolgreich: #{@new_counter} neue, #{@updated_counter} aktualisiert und #{@outlisted_counter} ausgelistet."

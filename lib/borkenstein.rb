@@ -13,7 +13,7 @@ module Borkenstein
   # parses a string from a foodsoft-file
   # returns two arrays with articles and outlisted_articles
   # the parsed article is a simple hash
-  def self.parse(data, list)
+  def self.parse(data)
     articles, outlisted_articles = Array.new, Array.new
     global_manufacturer = nil
 
@@ -65,7 +65,6 @@ module Borkenstein
 
           article = {
             :number => row[1],
-            :list => list,
             :name => name,
             :origin => origin,
             :manufacturer => manufacturer,

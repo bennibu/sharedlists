@@ -13,7 +13,7 @@ def import_files(filenames, supplier_name, options = {})
   filenames.each do |file|
     puts "parse #{file}..."
     outlisted_counter, new_counter, updated_counter, invalid_articles = 
-          supplier.update_articles_from_file(File.open("#{RAILS_ROOT}/tmp/#{file}", "r").read, options[:format], file, options[:encoding])
+          supplier.update_articles_from_file(File.open("#{RAILS_ROOT}/tmp/#{file}", "r").read, options[:format], options[:encoding])
     puts "Summary for #{file}:"
     puts "new: #{new_counter}"
     puts "updated: #{updated_counter}"

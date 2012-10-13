@@ -24,8 +24,8 @@ class Supplier < ActiveRecord::Base
       new_files.each do |file|
         logger.debug "parse #{file}..."
         outlisted_counter, new_counter, updated_counter, invalid_articles =
-            update_articles_from_file(File.read(File.join(bnn_path,file)), 'bnn', file, '850')
-        logger.info "#{file} succesful parsed: #{new_counter} new, #{updated_counter} updated, #{outlisted_counter} outlisted, #{invalid_articles.size} invalid"
+            update_articles_from_file(File.read(File.join(bnn_path,file)), 'bnn', '850')
+        logger.info "#{file} successfully parsed: #{new_counter} new, #{updated_counter} updated, #{outlisted_counter} outlisted, #{invalid_articles.size} invalid"
       end
 
       if $missing_bnn_codes
@@ -37,7 +37,7 @@ class Supplier < ActiveRecord::Base
   # parses file and updates articles
   # returns counter for outlisted, new and updated articles
   # also returns articles, where creation or update fails (invalid_articles)
-  def update_articles_from_file(data, type, filename = nil, character_set = 'utf8')
+  def update_articles_from_file(data, type, character_set = 'utf8')
     
     # convert characters from given character set to utf8 
     data = Iconv.conv('utf8', character_set, data) unless character_set == 'utf8'
@@ -50,29 +50,22 @@ class Supplier < ActiveRecord::Base
       new_or_updated_articles, outlisted_articles = FoodsoftFile::parse(data)
 
     when 'bnn'
-      # build listname, e.g. 'PL_FOOD.BNN' becomes 'pl_food'
-      listname = filename.split('.').first.downcase
-
-      new_or_updated_articles, outlisted_articles, specials = BnnFile::parse(data, listname)
-      # delete old articles from same list
-      Article.delete_all "list = '#{listname}' AND supplier_id = #{self.id}"
+      new_or_updated_articles, outlisted_articles, specials = BnnFile::parse(data)
 
     when 'borkenstein'
-      listname = filename.split('3.1.CSV').first
-      new_or_updated_articles, outlisted_articles = Borkenstein::parse(data, listname)
-      Article.delete_all "list = '#{listname}' AND supplier_id = #{self.id}"
+      new_or_updated_articles, outlisted_articles = Borkenstein::parse(data)
     end
     
     # delete all outlisted articles
     outlisted_articles.each do |article|
-      if article = articles.find_by_number(article[:number])
+      if (article = articles.find_by_number(article[:number]))
         article.destroy && outlisted_counter += 1
       end
     end
       
     # update or create articles
     new_or_updated_articles.each do |parsed_article|
-      if article = articles.find_by_number(parsed_article[:number])
+      if (article = articles.find_by_number(parsed_article[:number]))
         # update
         updated_counter += 1 if article.update_attributes(parsed_article)
       else

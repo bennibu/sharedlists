@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312190323) do
+ActiveRecord::Schema.define(:version => 20121013164501) do
 
   create_table "articles", :force => true do |t|
     t.string   "name",                                                          :null => false
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20120312190323) do
     t.decimal  "scale_price",    :precision => 8, :scale => 2
     t.datetime "created_on"
     t.datetime "updated_on"
-    t.string   "list"
   end
 
   add_index "articles", ["name"], :name => "index_articles_on_name"
@@ -45,7 +44,6 @@ ActiveRecord::Schema.define(:version => 20120312190323) do
     t.string   "note"
     t.datetime "created_on"
     t.datetime "updated_on"
-    t.string   "lists"
     t.boolean  "bnn_sync",      :default => false
     t.string   "bnn_host"
     t.string   "bnn_user"
