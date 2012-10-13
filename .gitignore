@@ -9,3 +9,4 @@ capfile
 assets/**
 .idea
 .rbenv-version
+.get-dump.yml
