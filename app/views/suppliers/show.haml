@@ -31,11 +31,7 @@
   Liefertage:
   %br/
   %strong= @supplier.delivery_days
-- unless @supplier.lists.blank?
-  %p
-    Teillisten:
-    %br/
-    %strong= @supplier.lists.inspect
+%p
   Notiz:
   %br/
   %strong= @supplier.note
