@@ -30,6 +30,11 @@ class User < ActiveRecord::Base
   end
 
   def has_access_to?(supplier)
-    !UserAccess.first(:conditions => {:supplier_id => supplier.id, :user_id => id}).nil?
+    admin? or !UserAccess.first(:conditions => {:supplier_id => supplier.id, :user_id => id}).nil?
   end
+
+  def admin?
+    !!admin
+  end
+
 end
