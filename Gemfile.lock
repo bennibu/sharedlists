@@ -31,6 +31,7 @@ GEM
     arel (2.0.10)
     bcrypt-ruby (3.0.1)
     builder (2.1.2)
+    chronic (0.9.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     fastercsv (1.5.4)
@@ -72,6 +73,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.35)
+    whenever (0.8.2)
+      activesupport (>= 2.3.4)
+      chronic (>= 0.6.3)
     will_paginate (3.0.4)
 
 PLATFORMS
@@ -83,4 +87,5 @@ DEPENDENCIES
   haml
   mysql2 (~> 0.2.0)
   rails (= 3.0.19)
+  whenever
   will_paginate (~> 3.0)
