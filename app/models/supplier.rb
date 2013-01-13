@@ -1,3 +1,5 @@
+require 'iconv'
+
 class Supplier < ActiveRecord::Base
   has_many :articles, :dependent => :destroy
   has_many :user_accesses, :dependent => :destroy
