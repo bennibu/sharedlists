@@ -54,8 +54,8 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.save
         flash[:notice] = 'Article was successfully created.'
-        format.html { redirect_to article_url(@article.supplier, @article) }
-        format.xml  { head :created, :location => article_url(@article.supplier, @article) }
+        format.html { redirect_to supplier_article_url(@article.supplier, @article) }
+        format.xml  { head :created, :location => supplier_article_url(@article.supplier, @article) }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @article.errors.to_xml }
@@ -70,7 +70,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.update_attributes(params[:article])
         flash[:notice] = 'Article was successfully updated.'
-        format.html { redirect_to article_url(@article.supplier, @article) }
+        format.html { redirect_to supplier_article_url(@article.supplier, @article) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -86,7 +86,7 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     respond_to do |format|
-      format.html { redirect_to articles_url(@supplier) }
+      format.html { redirect_to supplier_articles_url(@supplier) }
       format.xml  { head :ok }
     end
   end
@@ -104,14 +104,14 @@ class ArticlesController < ApplicationController
           
       if @invalid_articles.empty?
         flash[:notice] = "Hochladen erfolgreich: #{@new_counter} neue, #{@updated_counter} aktualisiert und #{@outlisted_counter} ausgelistet."
-        redirect_to articles_url(@supplier)
+        redirect_to supplier_articles_url(@supplier)
       else
         flash[:error] = "#{@invalid_articles.size} Artikel konnte(n) nicht gespeichert werden"
         render :template => 'articles/parse_errors'
       end
     rescue => error
       flash[:error] = "Fehler beim hochladen der Artikel: #{error.message}"
-      redirect_to upload_articles_url(@supplier)
+      redirect_to upload_supplier_articles_url(@supplier)
     end
   end
   
@@ -120,7 +120,7 @@ class ArticlesController < ApplicationController
   def destroy_all
     Article.delete_all :supplier_id => @supplier.id
     flash[:notice] = "Alle Artikel wurden gelöscht"
-    redirect_to articles_url(@supplier)
+    redirect_to supplier_articles_url(@supplier)
   end
   
 end
