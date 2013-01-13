@@ -20,4 +20,4 @@
         
     = submit_tag("Artikel hochladen")
     = hidden_field_tag :supplier_id, @supplier.id
-%p= link_to 'zurück', articles_url(@supplier)
+%p= link_to 'zurück', supplier_articles_url(@supplier)
