@@ -1,38 +1,19 @@
-ActionController::Routing::Routes.draw do |map|
-  # The priority is based upon order of creation: first created -> highest priority.
-  
-  # Sample of regular route:
-  # map.connect 'products/:id', :controller => 'catalog', :action => 'view'
-  # Keep in mind you can assign values other than :controller and :action
+SharedLists::Application.routes.draw do
+  match 'log_in' => 'sessions#new', :as => :log_in
+  match 'log_out' => 'sessions#destroy', :as => :log_out
+  resources :sessions, :only => [:new, :create, :destroy]
 
-  # Sample of named route:
-  # map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
-  # This route can be invoked with purchase_url(:id => product.id)
+  match '/' => 'suppliers#index', :as => :root
 
-  # You can have the root of your site routed by hooking up '' 
-  # -- just remember to delete public/index.html.
-  # map.connect '', :controller => "welcome"
-
-  # Allow downloading Web Service WSDL as a file with an extension
-  # instead of a file named 'wsdl'
-
-  map.log_in "log_in", :controller => 'sessions', :action => 'new'
-  map.log_out "log_out", :controller => 'sessions', :action => 'destroy'
-  map.resources :sessions, :only => [:new, :create, :destroy]
-  
-  map.root :controller => 'suppliers'
-
-  map.resources :suppliers do |suppliers|
-    suppliers.resources :articles, :name_prefix => nil, 
-                                   :collection => { :destroy_all => :delete,
-                                                    :upload => :get,
-                                                    :parse => :post }
+  resources :suppliers do
+    resources :articles do # name_prefix => nil
+      collection do
+        delete :destroy_all
+        get :upload
+        post :parse
+      end
+    end
   end
 
-  
-  map.connect ':controller/service.wsdl', :action => 'wsdl'
-
-  # Install the default route as the lowest priority.
-  map.connect ':controller/:action/:id.:format'
-  map.connect ':controller/:action/:id'
+  match '/:controller(/:action(/:id))'
 end

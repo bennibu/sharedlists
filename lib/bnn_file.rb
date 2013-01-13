@@ -11,10 +11,10 @@ module BnnFile
   
   # Loads the codes_file config/bnn_codes.yml into the class variable @@codes
   def self.load_codes
-    @@codes = YAML::load(File.open("#{RAILS_ROOT}/lib/bnn_codes.yml")).symbolize_keys
-    @@midgard = YAML::load(File.open("#{RAILS_ROOT}/lib/midgard_codes.yml")).symbolize_keys
+    @@codes = YAML::load(File.open("#{Rails.root}/lib/bnn_codes.yml")).symbolize_keys
+    @@midgard = YAML::load(File.open("#{Rails.root}/lib/midgard_codes.yml")).symbolize_keys
   rescue => e
-    raise "Failed to load bnn_codes: #{RAILS_ROOT}/libs/...yml: #{e.message}"
+    raise "Failed to load bnn_codes: #{Rails.root}/libs/...yml: #{e.message}"
   end
   
  public

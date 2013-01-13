@@ -1,12 +1,10 @@
-log/*.log
-tmp/**/*
-tmp/*
-config/*.yml
+.bundle
 db/*.sqlite3
-nbproject/
-config/environments/development.rb
-capfile
+log/*.log
+tmp/
 assets/**
+config/*.yml
 .idea
 .rbenv-version
 .get-dump.yml
+capfile

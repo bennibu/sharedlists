@@ -38,7 +38,7 @@
         %td= text_field 'article[]', 'scale_price', :size => 5
   %p
     Lieferanten auswählen: 
-    = select('supplier', 'id', Supplier.find(:all).collect {|s| [ s.name, s.id ] }, :selected => nil)
+    = select('supplier', 'id', Supplier.all.collect {|s| [ s.name, s.id ] }, :selected => nil)
     = submit_tag 'Artikel speichern'
   %p
   = link_to 'zurück', :action => 'uploadArticles'

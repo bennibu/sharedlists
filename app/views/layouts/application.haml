@@ -3,7 +3,8 @@
   %head
     %meta{"http-equiv" => "content-type", :content => "text/html;charset=UTF-8"}
     %title=h "SharedLists: " + controller.controller_name
-    =  stylesheet_link_tag 'scaffold'
+    = stylesheet_link_tag 'scaffold'
+    = csrf_meta_tag
   %body
     #content
       - if flash[:notice]

@@ -48,6 +48,6 @@
   %br/
   %strong= @article.scale_price
 
-= link_to 'Bearbeiten', edit_article_path(@article.supplier, @article)
+= link_to 'Bearbeiten', edit_supplier_article_path(@article.supplier, @article)
 |
-= link_to 'Zurück', articles_path(@article.supplier)
+= link_to 'Zurück', supplier_articles_path(@article.supplier)

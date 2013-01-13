@@ -13,7 +13,7 @@ def import_files(filenames, supplier_name, options = {})
   filenames.each do |file|
     puts "parse #{file}..."
     outlisted_counter, new_counter, updated_counter, invalid_articles = 
-          supplier.update_articles_from_file(File.open("#{RAILS_ROOT}/tmp/#{file}", "r").read, options[:format], options[:encoding])
+          supplier.update_articles_from_file(File.open("#{Rails.root}/tmp/#{file}", "r").read, options[:format], options[:encoding])
     puts "Summary for #{file}:"
     puts "new: #{new_counter}"
     puts "updated: #{updated_counter}"
@@ -29,9 +29,9 @@ end
 
 namespace :terra do
   
-  desc "parse all terra files in RAILS_ROOT/tmp/. imports the articles"
+  desc "parse all terra files in Rails.root/tmp/. imports the articles"
   task :import_all => :environment do
-    Dir.chdir("#{RAILS_ROOT}/tmp/")
+    Dir.chdir("#{Rails.root}/tmp/")
     
     puts "parses and imports articles"
     import_files(Dir["*.BNN"], "Terra Naturkost Handels KG")
@@ -48,7 +48,7 @@ namespace :terra do
     
     # load configuration for ftp-sync
     require 'yaml'
-    config = YAML::load(File.open("#{RAILS_ROOT}/config/terra.yml")).symbolize_keys
+    config = YAML::load(File.open("#{Rails.root}/config/terra.yml")).symbolize_keys
     
     puts "sync bnn-files with ftp-server ..."
     new_files = FtpSync::sync(config)
@@ -66,9 +66,9 @@ namespace :terra do
 end
 
 namespace :midgard do
-  desc "parse all midgard files in #{RAILS_ROOT}/tmp/. import the articles"
+  desc "parse all midgard files in #{Rails.root}/tmp/. import the articles"
   task :import_all => :environment do
-    Dir.chdir("#{RAILS_ROOT}/tmp/")
+    Dir.chdir("#{Rails.root}/tmp/")
     
     puts "parse and import articles"
     import_files(Dir["*.BNN"], "Midgard")
@@ -79,9 +79,9 @@ namespace :midgard do
 end
 
 namespace :borkenstein do
-  desc "parse all midgard files in #{RAILS_ROOT}/tmp/. import the articles"
+  desc "parse all midgard files in #{Rails.root}/tmp/. import the articles"
   task :import_all => :environment do
-    Dir.chdir("#{RAILS_ROOT}/tmp/")
+    Dir.chdir("#{Rails.root}/tmp/")
 
     puts "parse and import articles"
     import_files(Dir["*3.1.CSV"], "Borkenstein", :format => 'borkenstein', :encoding => 'LATIN1')
