@@ -1,6 +1,6 @@
 # Module for Borkenstein csv import
  
-require 'faster_csv'
+require 'csv'
 
 module Borkenstein
 
@@ -17,7 +17,7 @@ module Borkenstein
     articles, outlisted_articles = Array.new, Array.new
     global_manufacturer = nil
 
-    FasterCSV.parse(data, {:col_sep => ",", :headers => false}) do |row|
+    CSV.parse(data, {:col_sep => ",", :headers => false}) do |row|
 
       # Set manufacturer
       if row[1] == "-"

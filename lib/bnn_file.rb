@@ -1,4 +1,4 @@
-require 'faster_csv'
+require 'csv'
 require 'yaml'
 
 # Module for translation and parsing of BNN-files (www.n-bnn.de)
@@ -37,7 +37,7 @@ module BnnFile
   # the parsed article is a simple hash
   def self.parse(data)
     articles, outlisted_articles, specials = Array.new, Array.new, Array.new
-    FasterCSV.parse(data, {:col_sep => ";", :headers => true}) do |row|
+    CSV.parse(data, {:col_sep => ";", :headers => true}) do |row|
       # check if the line is empty
       unless row[0] == "" || row[0].nil?
         article = {

@@ -1,7 +1,7 @@
 # Module for FoodSoft-File import
 # The FoodSoft-File is a cvs-file, with semicolon-seperatet columns
  
-require 'faster_csv'
+require 'csv'
 
 module FoodsoftFile
   
@@ -10,7 +10,7 @@ module FoodsoftFile
   # the parsed article is a simple hash
   def self.parse(data)
     articles, outlisted_articles = Array.new, Array.new
-    FasterCSV.parse(data, {:col_sep => ";", :headers => true}) do |row|
+    CSV.parse(data, {:col_sep => ";", :headers => true}) do |row|
       # check if the line is empty
       unless row[2] == "" || row[2].nil?
         # test, if neccecary attributes exists
