@@ -3,8 +3,16 @@ db/*.sqlite3
 log/*.log
 tmp/
 assets/**
+
+# Do not store config in repo
 config/*.yml
+config/initializers/secret_token.rb
+
+# IDEs, Developer tools
 .idea
 .rbenv-version
 .get-dump.yml
-capfile
+
+# Capistrano etc
+Capfile
+config/deploy.rb
