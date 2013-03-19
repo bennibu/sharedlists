@@ -1,7 +1,6 @@
 source "http://rubygems.org"
 
-#gem "rails", "2.3.15"
-gem "rails", "3.0.20"
+gem 'rails', git: 'git://github.com/rails/rails.git', branch: '3-0-stable'
 gem "haml"
 gem "mysql2", "~> 0.2.0"
 gem "bcrypt-ruby", :require => "bcrypt"
