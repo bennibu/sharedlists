@@ -1,12 +1,18 @@
-log/*.log
-tmp/**/*
-tmp/*
-config/*.yml
+.bundle
 db/*.sqlite3
-nbproject/
-config/environments/development.rb
-capfile
+log/*.log
+tmp/
 assets/**
+
+# Do not store config in repo
+config/*.yml
+config/initializers/secret_token.rb
+
+# IDEs, Developer tools
 .idea
 .rbenv-version
 .get-dump.yml
+
+# Capistrano etc
+Capfile
+config/deploy.rb

@@ -9,7 +9,7 @@ class Supplier < ActiveRecord::Base
   validates_presence_of :name, :address, :phone
   validates_presence_of :bnn_host, :bnn_user, :bnn_password, :bnn_sync, :if => Proc.new { |s| s.bnn_sync }
 
-  named_scope :bnn_sync, :conditions => {:bnn_sync => true}
+  scope :bnn_sync, :conditions => {:bnn_sync => true}
   
   def bnn_path
     File.join(Rails.root, "assets/bnn_files/", id.to_s)
@@ -24,7 +24,7 @@ class Supplier < ActiveRecord::Base
       new_files.each do |file|
         logger.debug "parse #{file}..."
         outlisted_counter, new_counter, updated_counter, invalid_articles =
-            update_articles_from_file(File.read(File.join(bnn_path,file)), 'bnn', '850')
+            update_articles_from_file(File.read(File.join(bnn_path,file)), 'bnn', 'IBM850')
         logger.info "#{file} successfully parsed: #{new_counter} new, #{updated_counter} updated, #{outlisted_counter} outlisted, #{invalid_articles.size} invalid"
       end
 
@@ -37,10 +37,10 @@ class Supplier < ActiveRecord::Base
   # parses file and updates articles
   # returns counter for outlisted, new and updated articles
   # also returns articles, where creation or update fails (invalid_articles)
-  def update_articles_from_file(data, type, character_set = 'utf8')
+  def update_articles_from_file(data, type, character_set = 'UTF-8')
     
     # convert characters from given character set to utf8 
-    data = Iconv.conv('utf8', character_set, data) unless character_set == 'utf8'
+    data.encode! 'UTF-8', character_set unless character_set == 'UTF-8'
     
     invalid_articles = Array.new
     outlisted_counter, new_counter, updated_counter = 0, 0, 0

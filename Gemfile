@@ -1,7 +1,8 @@
 source "http://rubygems.org"
 
-gem "rails", "2.3.17"
-gem "fastercsv"
+gem 'rails', git: 'git://github.com/rails/rails.git', branch: '3-0-stable'
 gem "haml"
-gem "mysql"
+gem "mysql2", "~> 0.2.0"
 gem "bcrypt-ruby", :require => "bcrypt"
+gem 'will_paginate', '~> 3.0'
+gem 'whenever', :require => false

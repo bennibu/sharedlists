@@ -5,7 +5,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers
   # GET /suppliers.xml
   def index
-    @suppliers = Supplier.find(:all)
+    @suppliers = Supplier.all
 
     respond_to do |format|
       format.html # index.rhtml

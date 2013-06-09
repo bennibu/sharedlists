@@ -14,7 +14,7 @@
       %td=h supplier.phone
       %td=h supplier.delivery_days
       %td=h supplier.note
-      %td= link_to  supplier.articles.size.to_s + ' Artikel', articles_url(supplier)
+      %td= link_to  supplier.articles.size.to_s + ' Artikel', supplier_articles_url(supplier)
 
 %br/
 = link_to 'Neuer Lieferant', new_supplier_url
