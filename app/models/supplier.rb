@@ -12,7 +12,7 @@ class Supplier < ActiveRecord::Base
   scope :bnn_sync, :conditions => {:bnn_sync => true}
   
   def bnn_path
-    File.join(Rails.root, "assets/bnn_files/", id.to_s)
+    File.join(Rails.root, "supplier_assets/bnn_files/", id.to_s)
   end
 
   def sync_bnn_files
