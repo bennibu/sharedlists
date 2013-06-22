@@ -5,7 +5,7 @@
 %p
   %i Bitte (BNN-)Datei zum upload auswählen
 #uploadArticles.uploadForm
-  - form_for(:articles, :url => {:controller => 'articles', :action => 'parse'}, :html => { :multipart => true }) do |form|
+  = form_for(:articles, :url => {:controller => 'articles', :action => 'parse'}, :html => { :multipart => true }) do |form|
     %p
       Upload: 
       = form.file_field("file")

@@ -1,7 +1,6 @@
 %h1 Lieferantin bearbeiten
-= error_messages_for :supplier
-- form_for(:supplier, :url => supplier_path(@supplier), :html => { :method => :put }) do |@f|
-  = render :partial => 'form'
+= form_for(:supplier, :url => supplier_path(@supplier), :html => { :method => :put }) do |f|
+  = render 'form', f: f
 
 = link_to 'Show', supplier_path(@supplier)
 |
