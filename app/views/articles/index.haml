@@ -14,12 +14,12 @@
   = link_to "zurück", suppliers_url
   
 #filter{:style => "float:left;padding-right:1em;"}
-  - form_tag supplier_articles_url(@supplier), :method => :get do
+  = form_tag supplier_articles_url(@supplier), :method => :get do
     Suchen im Namen:
     = text_field_tag :filter, @filter
     = submit_tag 'Suchen'
 #sort{:style => "float:left;padding-right:1em;"}
-  - form_tag supplier_articles_url(@supplier), :method => :get do
+  = form_tag supplier_articles_url(@supplier), :method => :get do
     Sortieren nach: aktualisiert
     = check_box_tag :order, "updated_on", @updated_on, {:onclick => "submit();"}
 |
