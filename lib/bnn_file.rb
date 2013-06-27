@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'csv'
 require 'yaml'
 
@@ -46,6 +47,7 @@ module BnnFile
             :note => row[7],
             :manufacturer => self.translate(:manufacturer, row[10]),
             :origin => row[12],
+            :category => self.translate(:category, row[16]),
             :unit => row[23],
             :price => row[37],
             :tax => self.translate(:tax, row[33]),

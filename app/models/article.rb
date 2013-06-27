@@ -19,6 +19,7 @@
 #  created_on     :datetime
 #  updated_on     :datetime
 #  list           :string(255)
+#  category       :string(255)
 #
 
 class Article < ActiveRecord::Base
