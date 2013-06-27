@@ -825,3 +825,236 @@ manufacturer:
   ZWE: Zwergenwiese Naturkost GmbH
   ZWI: E. Zwicky (Deutschland) GmbH
   ZWÖ: Weingut im Zwölberich
+
+category:
+  "01": Brot und Backwaren
+  "02": Milch, Milchprodukte, Eier, Tofu
+  "03": Obst, Gemüse, Sprossen, Pilze
+  "04": Fleisch, Wurst, Snacks
+  "05": Getreide, Ölsaaten, Nußkerne
+  "06": Nudeln, Trockenfrüchte, Müsli
+  "07": Brotaufstriche, Honig, Nußmuse
+  "08": Würzmittel, Öle, Fette
+  "09": Süßwaren, Gebäck, Pudding
+  "10": Spezialsortimente
+  "11": Tee, Kaffee, Kakao
+  "12": Getränke
+  "13": Kräuter, Heilmittel, Ätherische Öle
+  "14": Körperpflege und Kosmetik
+  "15": Wasch- und Reinigungsmittel
+  "16": Haushaltsgeräte
+  "17": Bücher und Zeitschriften
+  "18": Papier, Schreibwaren, Spielzeug
+  "19": Textilien und Schuhe
+  "20": Farben, Bau- u. Wohnmaterial
+  "0101": Brot
+  "0102": Brötchen, Semmeln, Brezen
+  "0103": Spezialitäten
+  "0111": Standardgebäck
+  "0112": Saisongebäck
+  "0113": Kuchen, Torten
+  "0121": Pikantes Gebäck
+  "0131": Sonstiges vom Bäcker
+  "0201": Milch
+  "0202": Sauermilchprodukte
+  "0203": Quark
+  "0204": Joghurt
+  "0205": Pudding
+  "0206": Sahne, Butter, Sonstiges
+  "0211": Ziegen-/Schafsmilchprodukte
+  "0221": Frischkäse
+  "0222": Weichkäse
+  "0223": Halbfester Schnittkäse
+  "0224": Schnittkäse
+  "0225": Hartkäse
+  "0231": Ziegen-/Schafskäse
+  "0241": Eier
+  "0251": Tofu, Tempeh
+  "0252": Soja-Frischprodukte
+  "0253": Soja- und Reisgetränke
+  "0254": Sojapudding
+  "0301": Obst, heimisch
+  "0302": Südfrüchte
+  "0303": Beeren
+  "0304": Exoten
+  "0311": Kartoffeln
+  "0312": Wurzelgemüse
+  "0313": Salate
+  "0314": Blatt- und Zwiebelgemüse
+  "0315": Kohlgemüse
+  "0316": Fruchtgemüse und Spezialitäten
+  "0321": Kräuter
+  "0331": Keime und Sprossen
+  "0341": Pilze
+  "0351": Nüsse in Schale
+  "0399": Div. Frischprodukte
+  "0401": Fleisch
+  "0402": Geflügel
+  "0411": Wurst
+  "0421": Fisch
+  "0422": Fischerzeugnisse
+  "0431": Burger, Kroketten
+  "0441": Sonstige Snacks
+  "0501": Getreide
+  "0502": Hülsenfrüchte
+  "0511": Ölsaaten
+  "0521": Nußkerne
+  "0531": Keimsaaten
+  "0601": Getreideprodukte
+  "0602": Flocken
+  "0603": Nudeln
+  "0611": Sojaerzeugnisse
+  "0621": Trockenfrüchte
+  "0631": Müsli
+  "0632": Krunchy
+  "0701": Würzige Aufstriche
+  "0702": Fruchtaufstriche
+  "0711": Honig
+  "0712": Honigprodukte
+  "0721": Nußmuse
+  "0801": Salz und Kräutersalz
+  "0802": Essig
+  "0803": Senf
+  "0804": Suppen und  Soßen
+  "0805": Sojasoße und Miso
+  "0806": Würzmittel
+  "0811": Gewürze
+  "0812": Gewürzmischungen
+  "0813": Gewürzöle
+  "0821": Speiseöle
+  "0822": Margarine
+  "0831": Pikante Konserven
+  "0832": Süße Konserven
+  "0841": Fertiggerichte
+  "0842": Halbfertiggerichte
+  "0901": Frucht- und Knusperriegel
+  "0902": Bonbons und Lutscher
+  "0903": Schokolade
+  "0904": Pralinen
+  "0911": Dauergebäck
+  "0912": Waffeln
+  "0913": Kekse
+  "0914": Knabbergebäck
+  "0921": Süßmittel
+  "0922": Obstdicksäfte
+  "0923": Carob
+  "0931": Pudding
+  "0932": Back- und Geliermittel
+  "0933": Kochhilfen, Fermente
+  "1001": Säuglingsbreie
+  "1002": Babykost
+  "1011": Makrobiotische Spezialitäten
+  "1021": 3. Welt-Solidaritätswaren
+  "1031": Tiefkühlkost
+  "1051": Tiernahrung
+  "1101": Früchtetee
+  "1102": Kräutertee
+  "1103": Kräutertee-Mischungen
+  "1104": Rooibos
+  "1105": Gewürztee
+  "1111": Schwarzer Tee
+  "1112": Grüner Tee
+  "1113": Aromatisierter Tee
+  "1121": Bohnenkaffee
+  "1122": Ersatzkaffee
+  "1131": Kakao
+  "1132": Schokoladengetränke
+  "1201": Wasser
+  "1211": Fruchtsäfte
+  "1212": Fruchtnektare, Limonade, Schorle
+  "1213": Gemüsesäfte
+  "1215": Kwaszgetränke, Getreidegetränke, Diätgetränke
+  "1221": Bier
+  "1231": Rotwein
+  "1232": Rosé-Wein
+  "1233": Weißwein
+  "1241": Cidre
+  "1242": Schaumwein
+  "1251": Spirituosen
+  "1301": Heilkräuter
+  "1302": Kräutermischungen
+  "1311": Freiverkäufliche Arzneimittel
+  "1312": Kur- und Heilmittel
+  "1321": Ätherische Öle
+  "1322": Ätherische Ölmischungen
+  "1331": Duftlampen und Rauchgefäße
+  "1332": Zubehör für Duftwerk
+  "1341": Räucherwerk
+  "1401": Seife
+  "1402": Gesichtsreinigung und -pflege
+  "1403": Körperöl und Körperpflege
+  "1404": Haarpflege
+  "1405": Zahn- und Mundpflege
+  "1406": Handcreme
+  "1407": Fußpflege
+  "1411": Badezusätze und Duschpräparate
+  "1412": Deo, Eau de Toilette
+  "1413": Rasierzubehör
+  "1414": Sonnenschutz
+  "1415": Baby- und Kinderpflege
+  "1421": Dekorativkosmetik
+  "1422": Parfum
+  "1423": Sonstige Kosmetik
+  "1431": Zahnbürsten
+  "1432": Bürsten und Kämme
+  "1433": Kosmetikzubehör
+  "1441": Hygiene
+  "1451": Tierpflege
+  "1501": Waschmittel
+  "1502": Spülmittel
+  "1503": Reinigungsmittel
+  "1511": Dosierhilfsmittel
+  "1521": Schuhcreme
+  "1531": Insektenschutz, Düngemittel
+  "1601": Handmühlen
+  "1602": Elektromühlen
+  "1603": Kombi-Maschinen
+  "1604": Zubehör für Kombigeräte
+  "1611": Sonstige Haushaltsgeräte
+  "1612": Keimgeräte, Dörrapparate, Gärtöpfe
+  "1621": Küchenhelfer
+  "1622": Kaffee- und Teefilter
+  "1631": Haushaltswaren
+  "1701": Kochen und Backen
+  "1702": Ernährung und Gesundheit
+  "1703": Landwirtschaft und Garten
+  "1704": Ökologie und Ergänzendes
+  "1705": Baubiologie
+  "1706": Esoterisches
+  "1707": Sonstige Bücher
+  "1711": Zeitschriften
+  "1801": Schmuckpapier
+  "1802": Schulpapier
+  "1803": Neutrales Papier
+  "1804": Formdrucke
+  "1805": Geschenkpapier
+  "1806": Sonstiges Papier
+  "1811": Stifte
+  "1812": Malbedarf
+  "1813": Knetwachs
+  "1821": Kerzen
+  "1831": Spielzeug
+  "1832": Bastelbedarf
+  "1841": Edelsteine
+  "1851": CD's
+  "1852": MC's
+  "1901": Windeln
+  "1902": Baby- und Kinderwäsche
+  "1903": Erwachsenenwäsche
+  "1904": Oberbekleidung
+  "1905": Strümpfe
+  "1911": Schuhe und Einlegesohlen
+  "2001": Imprägnierung, Lasur, Balsame
+  "2002": Lacke
+  "2003": Wandfarben
+  "2004": Kleber
+  "2009": Sonstige Farben, Lösemittel
+  "2011": Tapeten
+  "2012": Bodenbeläge
+  "2013": Dämmstoffe
+  "2019": Sonstige Baumaterialien
+  "2021": Mobiliar
+  "2022": Matratzen
+  "2023": Heimtextilien
+  "2029": Sonstige Wohnmaterialien
+  "2031": Werkzeug, Hilfsmittel
