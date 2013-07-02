@@ -2,7 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/
-assets/**
+supplier_assets/**
 
 # Do not store config in repo
 config/*.yml
