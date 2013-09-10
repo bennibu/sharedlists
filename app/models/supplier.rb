@@ -95,6 +95,10 @@ class Supplier < ActiveRecord::Base
     
     return [outlisted_counter, new_counter, updated_counter, invalid_articles]
   end
+
+  def articles_updated_at
+    articles.order('articles.updated_on DESC').first.try(:updated_on)
+  end
 end
 
 # == Schema Information

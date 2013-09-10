@@ -6,14 +6,16 @@
     %th Telefon
     %th Liefertage
     %th Notiz
+    %th Zuletzt aktualisiert
     %th
   - for supplier in @suppliers
     %tr
       %td= link_to supplier.name, supplier_path(supplier)
-      %td=h supplier.address
-      %td=h supplier.phone
-      %td=h supplier.delivery_days
-      %td=h supplier.note
+      %td= supplier.address
+      %td= supplier.phone
+      %td= supplier.delivery_days
+      %td= supplier.note
+      %td= I18n.l supplier.articles_updated_at rescue nil
       %td= link_to  supplier.articles.size.to_s + ' Artikel', supplier_articles_url(supplier)
 
 %br/
