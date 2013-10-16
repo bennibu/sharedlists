@@ -39,8 +39,12 @@ class Supplier < ActiveRecord::Base
   # also returns articles, where creation or update fails (invalid_articles)
   def update_articles_from_file(data, type, character_set = 'UTF-8')
     
-    # convert characters from given character set to utf8 
-    data.encode! 'UTF-8', character_set unless character_set == 'UTF-8'
+    if character_set == 'UTF-8'
+      data = data.force_encoding 'UTF-8'
+    else
+      # convert characters from given character set to utf8 
+      data.encode! 'UTF-8', character_set unless character_set == 'UTF-8'
+    end
     
     invalid_articles = Array.new
     outlisted_counter, new_counter, updated_counter = 0, 0, 0
@@ -54,6 +58,9 @@ class Supplier < ActiveRecord::Base
 
     when 'borkenstein'
       new_or_updated_articles, outlisted_articles = Borkenstein::parse(data)
+
+    when 'dnb'
+      new_or_updated_articles, outlisted_articles = DNBFile::parse(data)
     end
     
     # delete all outlisted articles
