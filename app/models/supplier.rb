@@ -61,6 +61,9 @@ class Supplier < ActiveRecord::Base
 
     when 'dnb'
       new_or_updated_articles, outlisted_articles = DNBFile::parse(data)
+
+    when 'terrasana'
+      new_or_updated_articles, outlisted_articles = TerrasanaFile::parse(data)
     end
     
     # delete all outlisted articles
