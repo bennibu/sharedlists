@@ -12,7 +12,7 @@ module TerrasanaFile
     articles, outlisted_articles = Array.new, Array.new
     category = nil
     category_note = nil
-    CSV.parse(data, {:col_sep => csv_guess_col_sep(data), :headers => true}) do |row|
+    CSV.parse(data, {:col_sep => FileHelper.csv_guess_col_sep(data), :headers => true}) do |row|
       # skip empty lines
       (row[0] == "" || row[0].nil?) and next
       # categories take their own line
@@ -54,11 +54,4 @@ module TerrasanaFile
     return [articles, outlisted_articles]
   end
     
-  # return most probable column separator character from first line
-  def self.csv_guess_col_sep(data)
-    seps = [",", ";", "\t", "|"]
-    firstline = data[0..(data.index("\n")||-1)]
-    seps.map {|x| [firstline.count(x),x]}.sort_by {|x| -x[0]}[0][1]
-  end
-
 end

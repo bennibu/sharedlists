@@ -59,8 +59,11 @@ class Supplier < ActiveRecord::Base
     when 'borkenstein'
       new_or_updated_articles, outlisted_articles = Borkenstein::parse(data)
 
-    when 'dnb'
-      new_or_updated_articles, outlisted_articles = DNBFile::parse(data)
+    when 'dnb_csv'
+      new_or_updated_articles, outlisted_articles = DnbCsvFile::parse(data)
+
+    when 'dnb_xml'
+      new_or_updated_articles, outlisted_articles = DnbXmlFile::parse(data)
 
     when 'terrasana'
       new_or_updated_articles, outlisted_articles = TerrasanaFile::parse(data)
