@@ -15,10 +15,8 @@ module FoodsoftFile
   end
   
   # parses a string from a foodsoft-file
-  # returns two arrays with articles and outlisted_articles
   # the parsed article is a simple hash
   def self.parse(data)
-    articles, outlisted_articles = Array.new, Array.new
     CSV.parse(data, {:col_sep => ";", :headers => true}) do |row|
       # check if the line is empty
       unless row[2] == "" || row[2].nil?
@@ -37,16 +35,9 @@ module FoodsoftFile
                    :scale_quantity => row[11],
                    :scale_price => row[12]}
         article.merge!(:deposit => row[9]) unless row[9].nil?
-        case row[0]
-        when "x"
-          # check if the article is outlisted
-          outlisted_articles << article
-        else
-          articles << article
-        end
+	yield article, (row[0]=='x' ? :outlisted : nil)
       end
     end
-    return [articles, outlisted_articles, nil]
   end
     
 end

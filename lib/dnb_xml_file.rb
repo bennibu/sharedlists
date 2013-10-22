@@ -11,10 +11,8 @@ module DnbXmlFile
   end
   
   # parses a string
-  # returns two arrays with articles and outlisted_articles
   # the parsed article is a simple hash
   def self.parse(data)
-    articles, outlisted_articles = Array.new, Array.new
     xml = Hash.from_xml(data)
     xml['xmlproduct']['product'].each do |row|
       # create a new article

@@ -25,10 +25,10 @@ module FileHelper
   end
 
   # parse file by type (one of #file_formats, or 'auto')
-  def self.parse(data, type='auto')
+  def self.parse(data, type='auto', &blk)
     parser = (type == 'auto' ?  detect(data) : file_formats[type])
     # TODO handle wrong or undetected type
-    parser::parse(data)
+    parser::parse(data, &blk)
   end
 
   # return most probable column separator character from first line

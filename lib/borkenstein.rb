@@ -20,10 +20,8 @@ module Borkenstein
   end
   
   # parses a string from a foodsoft-file
-  # returns two arrays with articles and outlisted_articles
   # the parsed article is a simple hash
   def self.parse(data)
-    articles, outlisted_articles = Array.new, Array.new
     global_manufacturer = nil
 
     CSV.parse(data, {:col_sep => ",", :headers => false}) do |row|
@@ -88,11 +86,10 @@ module Borkenstein
             raise "Fehler: Einheit, Preis und MwSt. müssen gegeben sein: #{article.inspect}"
           end
 
-          articles << article
+          yield article, nil
         end
       end
     end
-    return [articles, outlisted_articles]
   end
     
 end

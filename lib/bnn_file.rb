@@ -42,10 +42,8 @@ module BnnFile
   end
   
   # parses a string from a bnn-file
-  # returns two arrays with articles and outlisted_articles
   # the parsed article is a simple hash
   def self.parse(data)
-    articles, outlisted_articles, specials = Array.new, Array.new, Array.new
     CSV.parse(data, {:col_sep => ";", :headers => true}) do |row|
       # check if the line is empty
       unless row[0] == "" || row[0].nil?
@@ -70,20 +68,18 @@ module BnnFile
         if row[62] != nil
           # consider special prices
           article[:note] = "Sonderpreis: #{article[:price]} von #{row[62]} bis #{row[63]}"
-          specials << article
+          yield article, :special
 
           # Check now for article status, we only consider outlisted articles right now
           # N=neu, A=Änderung, X=ausgelistet, R=Restbestand,
           # V=vorübergehend ausgelistet, W=wiedergelistet
         elsif row[1] == "X" || row[1] == "V"
-          # check if the article is outlisted
-          outlisted_articles << article
+          yield article, :outlisted
         else
-          articles << article
+          yield article, nil
         end
       end
     end
-    return [articles, outlisted_articles, specials]
   end
 end
 

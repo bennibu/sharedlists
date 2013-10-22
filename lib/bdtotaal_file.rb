@@ -13,16 +13,15 @@ module BdtotaalFile
     data[0..200].match(/\n\s*(,\s*)*BD-Totaal/m) ? 0.9 : 0
   end
   
-  # returns two arrays with articles and outlisted_articles
   # the parsed article is a simple hash
   def self.parse(data)
     data.gsub! /^.*?\n\s*(Artikelcode)/m, '\1' # first couple of lines may be a header
-    articles, outlisted_articles = Array.new, Array.new
     headclean = Proc.new {|x| x.gsub /^\s*(.*?)\s*$/, '\1'} # remove whitespace around headers
     CSV.parse(data, {:col_sep => FileHelper.csv_guess_col_sep(data), :headers => true, :header_converters => headclean}) do |row|
       # skip empty lines
       row[0].blank? and next
       # create a new article
+      error = nil
       name = row['Artikelomschrijving']
       manuf = row['Merknaam']
       if not manuf.blank? and manuf.match /(verpakt|los)/
@@ -31,7 +30,12 @@ module BdtotaalFile
       end
       unit_price = parse_price(row['Eenheidsprijs'])
       pack_price = parse_price(row['Colloprijs'])
-      unit, unit_quantity = parse_inhoud(row['Inhoud'], unit_price, pack_price)
+      begin
+        unit, unit_quantity = parse_inhoud(row['Inhoud'], unit_price, pack_price)
+      rescue Exception => e
+	unit, unit_quantity = row['Inhoud'], 1
+        error = e.message
+      end
       article = {:number => row['Artikelcode'],
                  :name => name,
                  :note => row['Kwaliteit'],
@@ -43,16 +47,8 @@ module BdtotaalFile
                  :tax => row['BTW-%'],
                  :deposit => 0,
                  :category => row['Subgroep']}
-      # not part of original BD-Totaal file
-      case row['Status']
-      when "x"
-        # check if the article is outlisted
-        outlisted_articles << article
-      else
-        articles << article
-      end
+      yield article, (error or (row['Status'] == 'x' ? :outlisted : nil))
     end
-    return [articles, outlisted_articles, nil]
   end
 
   protected

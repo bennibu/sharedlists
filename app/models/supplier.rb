@@ -46,46 +46,51 @@ class Supplier < ActiveRecord::Base
       data.encode! 'UTF-8', character_set unless character_set == 'UTF-8'
     end
     
-    invalid_articles = Array.new
+    specials = invalid_articles = Array.new
     outlisted_counter, new_counter, updated_counter = 0, 0, 0
 
-    # TODO make sure we have a valid file format
-    new_or_updated_articles, outlisted_articles, specials = FileHelper::parse(data, type)
-    
-    # delete all outlisted articles
-    outlisted_articles.each do |article|
-      if (article = articles.find_by_number(article[:number]))
-        article.destroy && outlisted_counter += 1
-      end
-    end
-      
-    # update or create articles
-    new_or_updated_articles.each do |parsed_article|
-      if (article = articles.find_by_number(parsed_article[:number]))
-        # update
-        updated_counter += 1 if article.update_attributes(parsed_article)
-      else
-        # create
+    FileHelper::parse(data, type) do |parsed_article, status|
+      article = articles.find_by_number(parsed_article[:number])
+      # create new article
+      if status.nil? and article.nil?
         new_article = articles.build(parsed_article)
         if new_article.valid? && new_article.save
           new_counter += 1
         else
           invalid_articles << new_article
         end
+
+      # update existing article
+      elsif status.nil? and article
+        updated_counter += 1 if article.update_attributes(parsed_article)
+
+      # delete outlisted article
+      elsif status == :outlisted and article
+        article.destroy && outlisted_counter += 1
+
+      # remember special info for article; store data to allow article after its special
+      elsif status == :special
+        specials << article
+
+      # mention parsing problems
+      elsif status.is_a?(String)
+        new_article = articles.build(parsed_article)
+	new_article.valid?
+	new_article.errors[''] = status
+	invalid_articles << new_article
+
       end
     end
     
     # updates articles with special infos
-    if specials
-      specials.each do |special|
-        if article = articles.find_by_number(special[:number])
-          if article.note 
-            article.note += " | #{special[:note]}"
-          else
-            article.note = special[:note]
-          end
-          article.save
+    specials.each do |special|
+      if article = articles.find_by_number(special[:number])
+        if article.note
+          article.note += " | #{special[:note]}"
+        else
+          article.note = special[:note]
         end
+        article.save
       end
     end
     

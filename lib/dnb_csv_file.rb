@@ -16,11 +16,8 @@ module DnbCsvFile
     somefields.select{|re| firstline.match re}.count / somefields.count
   end
   
-  # parses a string from a foodsoft-file
-  # returns two arrays with articles and outlisted_articles
   # the parsed article is a simple hash
   def self.parse(data)
-    articles, outlisted_articles = Array.new, Array.new
     CSV.parse(data, {:col_sep => FileHelper.csv_guess_col_sep(data), :headers => true}) do |row|
       # skip empty lines
       (row[2] == "" || row[2].nil?) and next
@@ -46,15 +43,8 @@ module DnbCsvFile
                  :tax => tax,
                  :deposit => row['statiegeld'],
                  :category => row['trefwoord']}
-      case row['status']
-      when "x"
-        # check if the article is outlisted
-        outlisted_articles << article
-      else
-        articles << article
-      end
+      yield article, (row['status'] == 'x' ? :outlisted : nil)
     end
-    return [articles, outlisted_articles, nil]
   end
     
 end

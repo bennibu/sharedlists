@@ -19,7 +19,6 @@ module TerrasanaFile
   # returns two arrays with articles and outlisted_articles
   # the parsed article is a simple hash
   def self.parse(data)
-    articles, outlisted_articles = Array.new, Array.new
     category = nil
     category_note = nil
     CSV.parse(data, {:col_sep => FileHelper.csv_guess_col_sep(data), :headers => true}) do |row|
@@ -53,15 +52,8 @@ module TerrasanaFile
                  :tax => row['Btw'],
                  :deposit => 0,
                  :category => category}
-      case row['status']
-      when "x"
-        # check if the article is outlisted
-        outlisted_articles << article
-      else
-        articles << article
-      end
+      yield article, (row['status']=='x' ? :outlisted : nil)
     end
-    return [articles, outlisted_articles, nil]
   end
     
 end
