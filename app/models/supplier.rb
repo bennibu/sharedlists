@@ -48,29 +48,9 @@ class Supplier < ActiveRecord::Base
     
     invalid_articles = Array.new
     outlisted_counter, new_counter, updated_counter = 0, 0, 0
-    
-    case type
-    when 'foodsoft'
-      new_or_updated_articles, outlisted_articles = FoodsoftFile::parse(data)
 
-    when 'bnn'
-      new_or_updated_articles, outlisted_articles, specials = BnnFile::parse(data)
-
-    when 'borkenstein'
-      new_or_updated_articles, outlisted_articles = Borkenstein::parse(data)
-
-    when 'dnb_csv'
-      new_or_updated_articles, outlisted_articles = DnbCsvFile::parse(data)
-
-    when 'dnb_xml'
-      new_or_updated_articles, outlisted_articles = DnbXmlFile::parse(data)
-
-    when 'terrasana'
-      new_or_updated_articles, outlisted_articles = TerrasanaFile::parse(data)
-
-    when 'bdtotaal'
-      new_or_updated_articles, outlisted_articles = BdtotaalFile::parse(data)
-    end
+    # TODO make sure we have a valid file format
+    new_or_updated_articles, outlisted_articles, specials = FileHelper::parse(data, type)
     
     # delete all outlisted articles
     outlisted_articles.each do |article|

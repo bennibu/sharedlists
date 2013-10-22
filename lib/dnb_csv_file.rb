@@ -3,7 +3,18 @@
  
 require 'csv'
 
-module DnvCsvFile
+module DnbCsvFile
+
+  def self.name
+    "De Nieuwe Band (CSV)"
+  end
+
+  def self.detect(data)
+    # header names in first line of input
+    firstline = data[0..(data.index("\n")||-1)]
+    somefields = [/art\.nr\./, /omschrijving/, /kwaliteit/, /merk/, /land/, /eenheid/, /aantal/, /btw/]
+    somefields.select{|re| firstline.match re}.count / somefields.count
+  end
   
   # parses a string from a foodsoft-file
   # returns two arrays with articles and outlisted_articles
@@ -43,7 +54,7 @@ module DnvCsvFile
         articles << article
       end
     end
-    return [articles, outlisted_articles]
+    return [articles, outlisted_articles, nil]
   end
     
 end

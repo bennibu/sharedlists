@@ -1,6 +1,14 @@
 # Module for De Nieuw Band XML import
  
 module DnbXmlFile
+
+  def self.name
+    "De Nieuwe Band (XML)"
+  end
+
+  def self.detect(data)
+    0 # TODO
+  end
   
   # parses a string
   # returns two arrays with articles and outlisted_articles
@@ -34,7 +42,7 @@ module DnbXmlFile
         outlisted_articles << article
       end
     end
-    return [articles, outlisted_articles]
+    return [articles, outlisted_articles, nil]
   end
     
   # return most probable column separator character from first line

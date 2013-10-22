@@ -1,9 +1,18 @@
+# -*- coding: utf-8 -*-
 # Module for FoodSoft-File import
 # The FoodSoft-File is a cvs-file, with semicolon-seperatet columns
  
 require 'csv'
 
 module FoodsoftFile
+
+  def self.name
+    "Foodsoft (CSV)"
+  end
+
+  def self.detect(data)
+    0 # TODO
+  end
   
   # parses a string from a foodsoft-file
   # returns two arrays with articles and outlisted_articles
@@ -37,7 +46,7 @@ module FoodsoftFile
         end
       end
     end
-    return [articles, outlisted_articles]
+    return [articles, outlisted_articles, nil]
   end
     
 end

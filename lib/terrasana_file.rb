@@ -4,6 +4,16 @@
 require 'csv'
 
 module TerrasanaFile
+
+  def self.name
+    "Terrasana (CSV)"
+  end
+
+  def self.detect(data)
+    firstline = data[0..(data.index("\n")||-1)]
+    somefields = [/ArtCode/, /Merk/, /Omschrijving Nederlands/, /Merk/, /Detail/, /Btw/, /V/, /E/]
+    somefields.select{|re| firstline.match re}.count / somefields.count
+  end
   
   # parses a string from a foodsoft-file
   # returns two arrays with articles and outlisted_articles
@@ -51,7 +61,7 @@ module TerrasanaFile
         articles << article
       end
     end
-    return [articles, outlisted_articles]
+    return [articles, outlisted_articles, nil]
   end
     
 end

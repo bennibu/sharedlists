@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Module for Borkenstein csv import
  
 require 'csv'
@@ -9,6 +10,14 @@ module Borkenstein
     :manufacturer => /^(.+)\s{4}\[\]\s{4}\(\)$/,
     :origin => /(.+)\s+(\w+)\/\w+[\/[\w\-]+]?/
   }
+
+  def self.name
+    "Borkenstein (CSV)"
+  end
+
+  def self.detect(data)
+     0 # TODO
+  end
   
   # parses a string from a foodsoft-file
   # returns two arrays with articles and outlisted_articles

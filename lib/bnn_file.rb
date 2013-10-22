@@ -32,6 +32,14 @@ module BnnFile
       return nil
     end
   end
+
+  def self.name
+    "BNN (CSV)"
+  end
+
+  def self.detect(data)
+    0 # TODO don't know how to detect this
+  end
   
   # parses a string from a bnn-file
   # returns two arrays with articles and outlisted_articles

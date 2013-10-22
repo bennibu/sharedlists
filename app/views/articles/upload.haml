@@ -12,7 +12,7 @@
     %p
       Datei-Format auswählen:
       %select{:name => 'type'}
-        = options_for_select({"FoodSoft-Datei" => "foodsoft", "BNN-Datei" => "bnn", "De Nieuwe Band (CSV)" => "dnb", "TerraSana (CSV)" => "terrasana", "BD-Totaal (CSV)" => "bdtotaal"}, "foodsoft")
+        = options_for_select([["Auto detect", 'auto']] + FileHelper::file_formats.invert.map{|f,k| [f.name, k]}, 'auto')
     %p
       Zeichenkodierung:
       %select{:name => 'character_set'}

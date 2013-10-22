@@ -3,6 +3,15 @@
 require 'csv'
 
 module BdtotaalFile
+
+  def self.name
+    "BD-Totaal (CSV)"
+  end
+
+  def self.detect(data)
+    # when there is a line starting with BD-Totaal
+    data[0..200].match(/\n\s*(,\s*)*BD-Totaal/m) ? 0.9 : 0
+  end
   
   # returns two arrays with articles and outlisted_articles
   # the parsed article is a simple hash
@@ -43,7 +52,7 @@ module BdtotaalFile
         articles << article
       end
     end
-    return [articles, outlisted_articles]
+    return [articles, outlisted_articles, nil]
   end
 
   protected
