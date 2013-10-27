@@ -33,9 +33,9 @@ module BdtotaalFile
       unit_price = parse_price(row['Eenheidsprijs'])
       pack_price = parse_price(row['Colloprijs'])
       begin
-        unit, unit_quantity, unit_price = parse_inhoud(row['Inhoud'], unit_price, pack_price)
+        unit_quantity, unit, unit_price = parse_inhoud(row['Inhoud'], unit_price, pack_price, row['Subgroep'])
       rescue Exception => e
-	unit, unit_quantity = row['Inhoud'], 1
+	unit, unit_quantity, unit_price = row['Inhoud'], 1, pack_price
         error = e.message
       end
       article = {:number => row['Artikelcode'],
@@ -66,26 +66,45 @@ module BdtotaalFile
   #   [1, "kg",],  [1, "300 gr",], [1, "1.5 kg",], [1, "8x25 gr",], [10, "bs",]
   # sometimes the order is unclear, so we compare the price of one unit with
   # the price of the full pack
-  def self.parse_inhoud(s, unit_price, total_price)
-    s.gsub! /^per\s*/, '' and return s, 1, unit_price
+  def self.parse_inhoud(s, unit_price, pack_price, category)
+    s.gsub! /^\s+/, ''; s.gsub! /\s+$/, ''
     s.gsub! /,/, '.' # use decimal point
+    s.gsub! /^per\s*/, '' and return 1, s, unit_price
+
     # if prices are equal it's easy
-    (unit_price - total_price) < 1e-3 and return s.gsub(/^1x/,''), 1, unit_price
-    # find which of the units is the unit quantity
+    (unit_price - pack_price).abs < 1e-3 and return 1, s.gsub(/^1x/,''), unit_price
+
+    # catch clothing and textile putting size in unit field
+    if category.match(/(kleding|textiel)/i) and
+       (s.match(/^([0-9\/]+)?\s*\(?[smlx\/]*\)?$/i) or s.match(/cm$/))
+      unit_quantity = pack_price / unit_price
+      (unit_quantity - unit_quantity.floor) >= 1e-3 and raise Exception "Textile has non-integer unit quantity #{unit_quantity}."
+      return unit_quantity, s, unit_price
+    end
+
+    preunit = s.gsub!(/ong[^0-9]+/i, '') ? 'ca. ' : ''
     parts, unit = s.split /\s+/, 2
     parts = parts.split('x')
-    i = parts.index { |p| (p.to_f * unit_price - total_price) < 1e-3 }
-    # if that fails, perhaps the unit_price is the kg-price and total_price is the unit price
-    if i.nil? and parts.length == 2 and parts[0].to_f == 1
-      if unit == 'gr' and (total_price*parts.last.to_f/1000 - unit_price) < 1e-2
-        i = 0; unit_price = total_price
-      elsif unit == 'kg' and (total_price*parts.last.to_f - unit_price) < 1e-2
-        i = 0; unit_price = total_price
-      end
-    end
-    raise Exception, "Could not find unit quantity for 'Inhoud': #{s} (single #{unit_price}, pack #{total_price})" if i.nil?
-    unit_quantity = parts.delete_at(i)
-    return "#{parts.join('x')} #{unit}", unit_quantity, unit_price
+    # fix units
+    "#{unit}".match(/^st/) and unit = 'st'
+    "#{unit}".match(/^plak/) and unit = 'plak'
+    unit == 'lt' and unit = 'ltr'
+
+    # perhaps the unit_price is the kg or litre price
+    mul = parts.map(&:to_f).reduce {|x,y| x*y}
+    unit == 'gr' and unit = 'kg' and mul = mul/1000
+    unit == 'ml' and unit = 'ltr' and mul = mul/1000
+    (mul*unit_price - pack_price).abs < 1e-2 and
+      return parts.delete_at(0), "#{preunit}#{parts.join('x')} #{unit}", pack_price
+
+    # for some articles unit_price is price/kg and haven't been catched
+    category.match /(per\s+|\/)kg/i and return 1, preunit+parts.join('x').gsub(/^1x/,''), pack_price
+
+    # consistency check
+    (parts[0].to_f*unit_price - pack_price).abs < 1e-2 or
+      raise Exception, "Could not find unit quantity for 'Inhoud': #{s} (single #{unit_price}, pack #{pack_price})"
+
+    return parts.delete_at(0), "#{preunit}#{parts.join('x')} #{unit}", unit_price
   end
   
 end
