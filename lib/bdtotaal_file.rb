@@ -25,23 +25,20 @@ module BdtotaalFile
       error = nil
       name = row['Artikelomschrijving']
       manuf = row['Merknaam']
-      # some manufacturer names are actually extra product info
-      if not manuf.blank? and manuf.match /(verpakt|los)/i
-        name += " (#{manuf})"
-        manuf = nil
-      end
+      notes = [row['Kwaliteit']]
       unit_price = parse_price(row['Eenheidsprijs'])
       pack_price = parse_price(row['Colloprijs'])
       begin
         unit_quantity, unit, unit_price = parse_inhoud(row['Inhoud'], unit_price, pack_price, row['Subgroep'])
       rescue Exception => e
-				# in case of a problem, we can always just order the full pack
-	      unit, unit_quantity, unit_price = row['Inhoud'], 1, pack_price
+        # in case of a problem, we can always just order the full pack
+        unit, unit_quantity, unit_price = row['Inhoud'], 1, pack_price
         error = e.message
       end
+      manuf, name = parse_manuf(manuf, name, unit, row['Hoofdgroep'])
       article = {:number => row['Artikelcode'],
                  :name => name,
-                 :note => row['Kwaliteit'],
+                 :note => notes.join("\n"),
                  :manufacturer => manuf,
                  :origin => row['Herkomst'],
                  :unit => unit,
@@ -61,6 +58,33 @@ module BdtotaalFile
     price.gsub(/^\s*[^0-9]+\s*/, '').to_f
   end
 
+  # some manufacturer names actually contain extra product info
+  def self.parse_manuf(manuf, name, unit, maincategory)
+    unless manuf.blank?
+      [
+        /\bper\s+(.*)\b/i,
+        /\b(verpakt|los|hand|rond|emmer|geperforeerd|afbreekbaar)\b/i,
+        /\b(in dop|moes|grof|gebroken|blad)\b/i,
+        /\b((x?\s*[0-9.,]+\s*)+(m|mm|cm|gr|kg))\b/i,
+        #/\b([0-9.,]+\s*(m|mm|cm|gr|kg)(x?\s*[0-9.,]+\s*)+)/i
+      ].each do |re|
+        if m=manuf.match(re)
+          m = m[1].downcase.gsub(/^\s*(.*?)\s*$/, '\1')
+          name += " (#{m})" unless m == unit or m == 'stuk'
+          manuf.gsub! re, ''
+        end
+      end
+      if "#{maincategory}".match(/textiel/i) and !name.match(/koksjas/i)
+        m = manuf.downcase.gsub(/^\s*(.*?)\s*$/, '\1')
+        name += " (#{m})"
+        manuf = ''
+      end
+      manuf.gsub! /\s+/, ' '
+      manuf.match(/^\s+$/) and manuf = nil
+    end
+    return manuf, name, maincategory
+  end
+
   # there is one field containing both unit and unit quantity
   #   "per kg",   "1x300 gr",    "1x1,5 kg",    "1x8x25 gr",    "1x10 bs"
   # returns unit, unit_quantity, unit_price
@@ -70,7 +94,7 @@ module BdtotaalFile
   def self.parse_inhoud(s, unit_price, pack_price, category)
     s.gsub! /^\s+/, ''; s.gsub! /\s+$/, ''
     s.gsub! /,/, '.' # use decimal point
-    s.gsub! /^per\s*/, '' and return 1, s, unit_price
+    s.gsub! /^per\s*/i, '' and return 1, s, unit_price
 
     # if prices are equal it's easy
     (unit_price - pack_price).abs < 1e-3 and return 1, s.gsub(/^1x/,''), unit_price
@@ -91,13 +115,15 @@ module BdtotaalFile
     "#{unit}".match(/^st/) and unit = 'st'
     "#{unit}".match(/^plak/) and unit = 'plak'
     unit == 'lt' and unit = 'ltr'
+    unit == 'bs' and unit = 'bos'
+    unit == 'mtr' and unit = 'm'
 
     # perhaps the unit_price is the kg or litre price
     mul, mulunit = parts.map(&:to_f).reduce {|x,y| x*y}, unit
     mulunit == 'gr' and mulunit = 'kg' and mul = mul/1000
     mulunit == 'ml' and mulunit = 'ltr' and mul = mul/1000
     if (mul*unit_price - pack_price).abs < 1e-2
-			unit_quantity = parts.delete_at(0)
+      unit_quantity = parts.delete_at(0)
       return unit_quantity, "#{preunit}#{parts.join('x')} #{unit}", pack_price/unit_quantity.to_f
     end
 
@@ -105,7 +131,7 @@ module BdtotaalFile
     category.match /(per\s+|\/)kg/i and return 1, preunit+parts.join('x').gsub(/^1x/,''), pack_price
 
     # consistency check
-		pack_price_computed = parts[0].to_f * unit_price
+    pack_price_computed = parts[0].to_f * unit_price
     (pack_price_computed - pack_price).abs < 1e-2 or
       raise Exception, "price per pack given #{pack_price} does not match computed #{parts[0]}*#{unit_price}=#{pack_price_computed.round(2)} in '#{s}'"
 
