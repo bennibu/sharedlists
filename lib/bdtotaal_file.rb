@@ -26,7 +26,7 @@ module BdtotaalFile
       name = row['Artikelomschrijving']
       manuf = row['Merknaam']
       # some manufacturer names are actually extra product info
-      if not manuf.blank? and manuf.match /(verpakt|los)/
+      if not manuf.blank? and manuf.match /(verpakt|los)/i
         name += " (#{manuf})"
         manuf = nil
       end
@@ -35,7 +35,8 @@ module BdtotaalFile
       begin
         unit_quantity, unit, unit_price = parse_inhoud(row['Inhoud'], unit_price, pack_price, row['Subgroep'])
       rescue Exception => e
-	unit, unit_quantity, unit_price = row['Inhoud'], 1, pack_price
+				# in case of a problem, we can always just order the full pack
+	      unit, unit_quantity, unit_price = row['Inhoud'], 1, pack_price
         error = e.message
       end
       article = {:number => row['Artikelcode'],
@@ -78,31 +79,35 @@ module BdtotaalFile
     if category.match(/(kleding|textiel)/i) and
        (s.match(/^([0-9\/]+)?\s*\(?[smlx\/]*\)?$/i) or s.match(/cm$/))
       unit_quantity = pack_price / unit_price
-      (unit_quantity - unit_quantity.floor) >= 1e-3 and raise Exception "Textile has non-integer unit quantity #{unit_quantity}."
-      return unit_quantity, s, unit_price
+      (unit_quantity - unit_quantity.floor).abs >= 1e-3 and
+        raise Exception, "price-based unit quantity #{pack_price}/#{unit_price}=#{unit_quantity.round(2)} is not a whole number (textile, '#{s}')"
+      return unit_quantity.to_i, s, unit_price
     end
 
     preunit = s.gsub!(/ong[^0-9]+/i, '') ? 'ca. ' : ''
     parts, unit = s.split /\s+/, 2
-    parts = parts.split('x')
+    parts = parts.split(/x/i)
     # fix units
     "#{unit}".match(/^st/) and unit = 'st'
     "#{unit}".match(/^plak/) and unit = 'plak'
     unit == 'lt' and unit = 'ltr'
 
     # perhaps the unit_price is the kg or litre price
-    mul = parts.map(&:to_f).reduce {|x,y| x*y}
-    unit == 'gr' and unit = 'kg' and mul = mul/1000
-    unit == 'ml' and unit = 'ltr' and mul = mul/1000
-    (mul*unit_price - pack_price).abs < 1e-2 and
-      return parts.delete_at(0), "#{preunit}#{parts.join('x')} #{unit}", pack_price
+    mul, mulunit = parts.map(&:to_f).reduce {|x,y| x*y}, unit
+    mulunit == 'gr' and mulunit = 'kg' and mul = mul/1000
+    mulunit == 'ml' and mulunit = 'ltr' and mul = mul/1000
+    if (mul*unit_price - pack_price).abs < 1e-2
+			unit_quantity = parts.delete_at(0)
+      return unit_quantity, "#{preunit}#{parts.join('x')} #{unit}", pack_price/unit_quantity.to_f
+    end
 
     # for some articles unit_price is price/kg and haven't been catched
     category.match /(per\s+|\/)kg/i and return 1, preunit+parts.join('x').gsub(/^1x/,''), pack_price
 
     # consistency check
-    (parts[0].to_f*unit_price - pack_price).abs < 1e-2 or
-      raise Exception, "Could not find unit quantity for 'Inhoud': #{s} (single #{unit_price}, pack #{pack_price})"
+		pack_price_computed = parts[0].to_f * unit_price
+    (pack_price_computed - pack_price).abs < 1e-2 or
+      raise Exception, "price per pack given #{pack_price} does not match computed #{parts[0]}*#{unit_price}=#{pack_price_computed.round(2)} in '#{s}'"
 
     return parts.delete_at(0), "#{preunit}#{parts.join('x')} #{unit}", unit_price
   end
