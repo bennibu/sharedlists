@@ -98,10 +98,12 @@ class ArticlesController < ApplicationController
   # parse the file to load articles  
   # checks if the article should be updated, create or destroyed
   def parse
-    begin
+    Article.transaction do
+      Article.delete_all :supplier_id => @supplier.id unless params[:delete_existing].blank?
+
       @outlisted_counter, @new_counter, @updated_counter, @invalid_articles =
           @supplier.update_articles_from_file(params[:articles]["file"].read, params[:type], params[:character_set])
-          
+
       if @invalid_articles.empty?
         flash[:notice] = "Hochladen erfolgreich: #{@new_counter} neue, #{@updated_counter} aktualisiert und #{@outlisted_counter} ausgelistet."
         redirect_to supplier_articles_url(@supplier)
@@ -109,10 +111,10 @@ class ArticlesController < ApplicationController
         flash[:error] = "#{@invalid_articles.size} Artikel konnte(n) nicht gespeichert werden"
         render :template => 'articles/parse_errors'
       end
-    rescue => error
-      flash[:error] = "Fehler beim hochladen der Artikel: #{error.message}"
-      redirect_to upload_supplier_articles_url(@supplier)
     end
+  rescue => error
+    flash[:error] = "Fehler beim hochladen der Artikel: #{error.message}"
+    redirect_to upload_supplier_articles_url(@supplier)
   end
   
   
