@@ -64,9 +64,9 @@ module BdtotaalFile
       [
         /\bper\s+(.*)\b/i,
         /\b(verpakt|los|hand|rond|emmer|geperforeerd|afbreekbaar)\b/i,
-        /\b(in dop|moes|grof|gebroken|blad)\b/i,
-        /\b((x?\s*[0-9.,]+\s*)+(m|mm|cm|gr|kg))\b/i,
-        #/\b([0-9.,]+\s*(m|mm|cm|gr|kg)(x?\s*[0-9.,]+\s*)+)/i
+        /\b(in dop|moes|grof|gebroken|blad|met loof|stoof|pers)\b/i,
+        /\b((x?\s*[0-9.,]+\s*){2,})$/i,
+        /\b(((x?\s*[0-9.,]+\s*)+(m|mm|cm|gr|kg))\s*(x?\s*[0-9.,]+\s*)?)$/i,
       ].each do |re|
         if m=manuf.match(re)
           m = m[1].downcase.gsub(/^\s*(.*?)\s*$/, '\1')
@@ -96,9 +96,6 @@ module BdtotaalFile
     s.gsub! /,/, '.' # use decimal point
     s.gsub! /^per\s*/i, '' and return 1, s, unit_price
 
-    # if prices are equal it's easy
-    (unit_price - pack_price).abs < 1e-3 and return 1, s.gsub(/^1x/,''), unit_price
-
     # catch clothing and textile putting size in unit field
     if category.match(/(kleding|textiel)/i) and
        (s.match(/^([0-9\/]+)?\s*\(?[smlx\/]*\)?$/i) or s.match(/cm$/))
@@ -110,13 +107,18 @@ module BdtotaalFile
 
     preunit = s.gsub!(/ong[^0-9]+/i, '') ? 'ca. ' : ''
     parts, unit = s.split /\s+/, 2
-    parts = parts.split(/x/i)
     # fix units
     "#{unit}".match(/^st/) and unit = 'st'
     "#{unit}".match(/^plak/) and unit = 'plak'
     unit == 'lt' and unit = 'ltr'
     unit == 'bs' and unit = 'bos'
     unit == 'mtr' and unit = 'm'
+
+    # if prices are equal it's easy
+    (unit_price - pack_price).abs < 1e-3 and
+      return 1, "#{preunit}#{parts.gsub(/^\s*1x/,'')} #{unit}", unit_price
+
+    parts = parts.split(/x/i)
 
     # perhaps the unit_price is the kg or litre price
     mul, mulunit = parts.map(&:to_f).reduce {|x,y| x*y}, unit
@@ -130,9 +132,9 @@ module BdtotaalFile
     # for some articles unit_price is price/kg and haven't been catched
     category.match /(per\s+|\/)kg/i and return 1, preunit+parts.join('x').gsub(/^1x/,''), pack_price
 
-    # consistency check
+    # consistency check (2nd check is for "6x5x64 ml" ice, where unit_price is per subbox of 64ml)
     pack_price_computed = parts[0].to_f * unit_price
-    (pack_price_computed - pack_price).abs < 1e-2 or
+    (pack_price_computed - pack_price).abs < 1e-2 or ((parts.size>1 and pack_price_computed*parts[1].to_f - pack_price).abs < 1e-2) or
       raise Exception, "price per pack given #{pack_price} does not match computed #{parts[0]}*#{unit_price}=#{pack_price_computed.round(2)} in '#{s}'"
 
     return parts.delete_at(0), "#{preunit}#{parts.join('x')} #{unit}", unit_price
