@@ -14,6 +14,7 @@ module FileHelper
       'dnb_csv' => DnbCsvFile,
       'terrasana' => TerrasanaFile,
       'bdtotaal' => BdtotaalFile,
+      'wimbijma' => WimbijmaCsvFile,
     }
   end
 
