@@ -17,10 +17,11 @@ module DnbXmlFile
     xml['xmlproduct']['product'].each do |row|
       # create a new article
       unit = (row['eenheid'] or 'st')
+      unit == 'stuk' and unit = 'st'
       unit == 'g' and unit = 'gr' # unit currently needs to be at least 2 characters
       unit == 'l' and unit = 'ltr' # unit currently needs to be at least 2 characters
-      not row['inhoud'].nil? and row['inhoud'].to_i > 1 and unit = row['inhoud'].gsub(/\.0+\s*$/,'') + unit
-      article = {:number => prod['bestelnummer'],
+      not row['inhoud'].nil? and (row['inhoud'].to_f-1).abs > 1e-3 and unit = row['inhoud'].gsub(/\.0+\s*$/,'') + unit
+      article = {:number => row['bestelnummer'],
                  #:ean => row['eancode'],
                  :name => row['omschrijving'],
                  :note => row['kwaliteit'],
@@ -30,7 +31,7 @@ module DnbXmlFile
                  :price => row['prijs']['inkoopprijs'],
                  :unit_quantity => row['sve'], 
                  :tax => row['btw'],
-                 :deposit => row['statiegeld'],
+                 :deposit => (row['statiegeld'] or 0),
                  :category => row['trefwoord']}
       # check if the article is outlisted
       case row['status']
