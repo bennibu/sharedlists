@@ -25,7 +25,7 @@ module DnbCsvFile
       unit = (row['eenheid'] or 'st')
       unit == 'g' and unit = 'gr' # unit currently needs to be at least 2 characters
       unit == 'l' and unit = 'ltr' # unit currently needs to be at least 2 characters
-      not row['inhoud'].nil? and row['inhoud'].to_i > 1 and unit = row['inhoud'] + unit
+      not row['inhoud'].nil? and (row['inhoud'].to_f-1).abs > 1e-3 and unit = row['inhoud'] + unit
       tax = case row['btw'].to_i
         when 0 then 0.0
         when 1 then 6.0

@@ -64,7 +64,8 @@ module BdtotaalFile
       [
         /\bper\s+(.*)\b/i,
         /\b(verpakt|los|hand|rond|emmer|geperforeerd|afbreekbaar)\b/i,
-        /\b(in dop|moes|grof|gebroken|blad|met loof|stoof|pers)\b/i,
+        /\b(in dop|moes|grof|gebroken|blad|met loof|stoof|pers|kook(appel)|verwerkt?)\b/i,
+        /\b(paars)\b/i,
         /\b((x?\s*[0-9.,]+\s*){2,})$/i,
         /\b(((x?\s*[0-9.,]+\s*)+(m|mm|cm|gr|kg))\s*(x?\s*[0-9.,]+\s*)?)$/i,
       ].each do |re|
