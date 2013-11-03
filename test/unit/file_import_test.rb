@@ -10,7 +10,7 @@ class FileImportTest < Test::Unit::TestCase
   end
 
   # for each file to import, add tests
-  Dir.glob('test/fixtures/files/*_file_*.{csv,xls,xlsx,ods,xml}') do |file|
+  Dir.glob('test/files/*_file_*.{csv,xls,xlsx,ods,xml}') do |file|
     filename = File.basename(file).gsub '.', '_'
     type = filename.match(/(.*)_file/)[1]
     opts = read_options(file)

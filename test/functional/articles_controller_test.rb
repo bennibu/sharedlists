@@ -4,7 +4,7 @@ require 'articles_controller'
 # Re-raise errors caught by the controller.
 class ArticlesController; def rescue_action(e) raise e end; end
 
-class ArticlesControllerTest < Test::Unit::TestCase
+class ArticlesControllerTest < ActionDispatch::IntegrationTest
   fixtures :articles, :suppliers
 
   def setup

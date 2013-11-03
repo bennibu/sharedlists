@@ -27,7 +27,6 @@ one:
   tax: "7.0"
   name: "Hamburger Medaillons ca. 2 kg Block"
   scale_price: "0.00"
-  refund: "0.00"
   price: "9.32"
   number: 920400
   scale_quantity: "0.00"
@@ -43,7 +42,6 @@ two:
   tax: "7.0"
   name: "Kalbsleberwurst 120g"
   scale_price: "0.00"
-  refund: "0.00"
   price: "1.44"
   number: 920355
   scale_quantity: "0.00"
