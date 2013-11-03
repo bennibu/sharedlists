@@ -1,0 +1,55 @@
+BD-Totaal;;;;;;;;;;
+Lichtschip 31;;;;;;;;;;
+3991 CP Houten;;;;;;;;;;
+t: 012-1234567;;;;;;;;;;
+info@bd-totaal.nl;;;;;;;;;;
+www.bd-totaal.nl;;;;;;;;;;
+;;;;;;;;;;
+Artikelcode;Artikelomschrijving;Hoofdgroep;Subgroep;Merknaam;Kwaliteit;Herkomst;Inhoud; Colloprijs ; Eenheidsprijs ;BTW-%
+10000;Aardpeer;A.G.F.;AARDAPPELS;;DEM;Nederland;1x5 kg;€ 28,17;€ 5,63;6
+10001;Agria licht bl. 70+;A.G.F.;AARDAPPELS;VastLaag;EKO;Nederland;1x25 kg;€ 48,84;€ 1,95;6
+10002;Bionica vast;A.G.F.;AARDAPPELS;;DEM;Nederland;1x15 kg;€ 37,51;€ 2,50;6
+10003;Ditta maaltje;A.G.F.;AARDAPPELS;verpakt;EKO;Nederland;10x1 kg;€ 37,49;€ 3,75;6
+10004;Nicola vast;A.G.F.;AARDAPPELS;Salamita;BIO;Italie;1x10 kg;€ 13,46;€ 1,35;6
+10005;Portabella;A.G.F.;PADDESTOELEN;los;EKO;Nederland;1x1,5 kg;€ 25,41;€ 16,94;6
+10006;Portabella;A.G.F.;PADDESTOELEN;verpakt;EKO;Nederland;4x2 st;€ 7,29;€ 1,82;6
+10007;Andijvie;A.G.F.;GROENTE;;BIO;Spanje;1x10 st;€ 27,40;€ 2,74;6
+10008;Aloe vera blad;A.G.F.;GROENTE;Agrilatina;DEM;Italie;1x10 st;€ 13,43;€ 1,34;6
+10009;Artisjokken;A.G.F.;GROENTE;150 gr;BIO;Spanje;1x1 st;€ 1,15;€ 1,15;6
+10010;Aubergine;A.G.F.;GROENTE;los;BIO;Spanje;1x3 kg;€ 15,59;€ 5,20;6
+10011;Salie in pot;A.G.F.;KRUIDENPLANTJES POT;Herbio;EKO;Belgie;1x1 st;€ 3,14;€ 3,14;6
+10012;Blauwe bessen;A.G.F.;ZACHT FRUIT;;BIO;Argentinie;12x125 gr;€ 16,51;€ 1,38;6
+10013;Druiven wit pitloos;A.G.F.;ZACHT FRUIT;verpakt;BIO;Zuid-Amerika;10x400 gr;€ 78,23;€ 7,82;6
+10014;Pinda's (dop);A.G.F.;NOTEN;in dop;BIO;Egypte;15x250 gr;€ 61,64;€ 4,11;6
+10015;Sojadessert framboos;ZUIVEL;ZUIVEL SOYA;Provamel;BIO;Belgie;1x4x125 gr;€ 1,81;€ 1,81;6
+10016;Kaas jong belegen G;ZUIVEL;KAAS GESNEDEN;Bedeco;EKO;Nederland;25x10 pl;€ 130,69;€ 5,23;6
+10017;Geraspte kaas 100 gr;ZUIVEL;KAAS GERASPT;Zuiver Z.;EKO;Nederland;10x100 gr;€ 33,68;€ 3,37;6
+10018;Roomkaaspuntjes nat.;ZUIVEL;KAAS SMEERKAAS;Bioverde;BIO;Duitsland;1x8x25 gr;€ 5,58;€ 5,58;6
+10019;Kretasticks;ZUIVEL;SNACKS VEG. DIEPVRIES;Soto;BIO;Duitsland;6x5x30gr;€ 0,45;€ 0,07;6
+10020;Roomijs chocolate power;ZUIVEL;IJS;Moreganic;EKO;MAX HAVELAAR;2x2,25 ltr;€ 34,85;€ 17,43;6
+10021;Frans knipbrood;BROOD EN BANKET;BROOD MALS GIST;Zonnelied;DEM;Nederland;per stuk;€ 0,64;€ 0,64;6
+10022;Ossehaas schoon;VLEES;RUNDVLEES;Groene weg;EKO;;1x1 kg;€ 40,01;€ 40,01;6
+10023;Vliesvlees rund;VLEES;RUNDVLEES;Groene weg;EKO;;1x20 kg;€ 154,83;€ 7,74;6
+10024;Lams achterspan;VLEES;LAMSVLEES;Op bestelling;EKO;Nederland;Ongev.8 kg;€ 217,21;€ 27,15;6
+10025;Varkensrollade G kilo;VLEES;VLEESWAAR GESN. PRIJS/KG;Groene Weg;EKO;Nederland;1x1 kg;€ 20,58;€ 20,58;6
+10026;Varkensrollade G;VLEES;VLEESWAAR GESN. PRIJS/KG;Groene Weg;EKO;Nederland;1x10 plaks;€ 1,56;€ 14,23;6
+10027;Achterham G;VLEES;VLEESWAAR GESN. PRIJS/KG;Groene Weg;EKO;;1x10 plakken;'€ 6,00;€ 54,40;6
+10028;Achterham G;VLEES;VLEESWAAR GESN. PRIJS/KG;Groene weg;EKO;;1x100 gr;€ 0,13;€ 1,22;6
+10029;Parma ham G;VLEES;VLEESWAAR GESN. PRIJS/KG;Groene Weg;EKO;;1x10 plakk;€ 9,76;€ 88,68;6
+10030;Erwtensoep vers;VLEES;SOEP VERS/QUICHE;Groene weg;EKO;Nederland;1x3 ltr;€ 26,06;€ 8,69;6
+10031;Tarwe fijnmeel;DROOGWAREN;MELEN;Ekoland;EKO;;6x1 kg;€ 25,39;€ 4,23;6
+10032;Tarwe fijnmeel 82%BD;DROOGWAREN;MELEN;Bedeco;DEM;Nederland;1x5 kg;€ 9,39;€ 1,88;6
+10033;Appelsap 1 liter;DROOGWAREN;VRUCHTENSAP LOVERENDALE;Loverendale;DEM;Duitsland;6x1 ltr;€ 7,29;€ 1,21;6
+10034;Bosvruchtensap;DROOGWAREN;VRUCHTENSAP LOVERENDALE;Loverendale;DEM;Duitsland;6x700 ml;€ 16,11;€ 2,69;6
+10035;Waspoeder Tech. Duty;NON-FOOD;ECOVER PROF. NON-FOOD;Techno Gr.;;;1x10 kg;€ 3,88;€ 0,39;21
+10036;Vloeibaar wasm.Elite;NON-FOOD;ECOVER PROF. NON-FOOD;Techno Gr.;;;4x3 ltr;€ 121,63;€ 30,41;21
+10037;Vloeibaar wasm.Elite;NON-FOOD;ECOVER PROF. NON-FOOD;Techno Gr.;;;1x5 ltr;€ 19,35;€ 3,87;21
+10038;Schort bistro kort;TEXTIEL;KEUKENTEXTIEL OP BESTEL.;Zwart;EKO;India;50x90 cm;€ 5,86;€ 5,86;21
+10039;Draagtasje lange h.;TEXTIEL;KEUKENTEXTIEL OP BESTEL.;Ecru;EKO;;1x10 st.;€ 12,34;€ 1,23;21
+10040;Heren pique poloshirt;TEXTIEL;BEDRIJFSKLEDING OP BESTE.;Varengroen;EKO;Turkije; M;€ 16,89;€ 16,89;21
+10041;Heren jersey poloshirt;TEXTIEL;BEDRIJFSKLEDING OP BESTE.;Taupe;EKO;Turkije; M;€ 37,19;€ 37,19;21
+10042;Heren jersey poloshirt;TEXTIEL;BEDRIJFSKLEDING OP BESTE.;Taupe;EKO;India; L;€ 43,88;€ 43,88;21
+10043;Heren jersey poloshirt;TEXTIEL;BEDRIJFSKLEDING OP BESTE.;Taupe;EKO;Turkije;XL;€ 58,20;€ 58,2;21
+10044;Heren overhemd l.m.;TEXTIEL;BEDRIJFSKLEDING OP BESTE.;Ecru;EKO;Turkije;46(S);€ 10,64;€ 10,64;21
+10045;Heren overhemd l.m.;TEXTIEL;BEDRIJFSKLEDING OP BESTE.;Ecru;EKO;Turkije;48(M);€ 58,36;€ 58,36;21
+10046;Heren overhemd l.m.;TEXTIEL;BEDRIJFSKLEDING OP BESTE.;Ecru;EKO;Turkije;50(M/L);€ 76,56;€ 76,56;21

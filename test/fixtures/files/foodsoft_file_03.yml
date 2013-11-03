@@ -1,0 +1,11 @@
+---
+- :number: '1234'
+  :name: éxòtiç
+  :note: biô
+  :manufacturer: Produßer
+  :origin: eu
+  :unit: 1 kg
+  :price: 1.23
+  :tax: 6
+  :unit_quantity: 10
+  :deposit: 0

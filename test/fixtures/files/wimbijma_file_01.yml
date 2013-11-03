@@ -1,0 +1,221 @@
+---
+- :number: Ananas Salie
+  :name: Ananas Salie
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: doos
+  :price: '1.90'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Kruiden
+- :number: Borage bloem wit/blauw*
+  :name: Borage bloem wit/blauw*
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: stuk
+  :price: '1.50'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: 
+- :number: Appel Munt
+  :name: Appel Munt
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: doos
+  :price: '0.10'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Kruiden
+- :number: Kervel bloem
+  :name: Kervel bloem
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: doos
+  :price: '12.50'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: 
+- :number: Basilicum Munt
+  :name: Basilicum Munt
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: doos
+  :price: '5.00'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Kruiden
+- :number: Goudsbloem
+  :name: Goudsbloem
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: stuk
+  :price: '0.40'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: 
+- :number: Berg Munt
+  :name: Berg Munt
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: doos
+  :price: '1.20'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Kruiden
+- :number: Oost Indische Kers bloem
+  :name: Oost Indische Kers bloem
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: doos
+  :price: '1.00'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: 
+- :number: Bieslook
+  :name: Bieslook
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: bos
+  :price: '0.29'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Kruiden
+- :number: Venkel bloem
+  :name: Venkel bloem
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: doos
+  :price: '8.27'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: 
+- :number: Boom Basilicum
+  :name: Boom Basilicum
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: doos
+  :price: '0.80'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Kruiden
+- :number: 7-blad
+  :name: 7-blad
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: bos
+  :price: '0.90'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Groenten
+- :number: Knolselderij
+  :name: Knolselderij
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: stuk
+  :price: '0.20'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Groenten
+- :number: Knolvenkel Mikro
+  :name: Knolvenkel Mikro
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: stuk
+  :price: '2.10'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Groenten
+- :number: Koolraap
+  :name: Koolraap
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: stuk
+  :price: '1.80'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Groenten
+- :number: Mizuma
+  :name: Mizuma
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: bos
+  :price: '1.10'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Groenten
+- :number: Mierikswortel
+  :name: Mierikswortel
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: ons
+  :price: '8.25'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Groenten
+- :number: Uien geel
+  :name: Uien geel
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: kilo
+  :price: '3.90'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Groenten
+- :number: Verveine
+  :name: Verveine
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: doos
+  :price: '4.20'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Groenten
+- :number: Witte kool
+  :name: Witte kool
+  :note: 
+  :manufacturer: 
+  :origin: nld
+  :unit: stuk
+  :price: '0.20'
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: Groenten
