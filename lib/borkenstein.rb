@@ -15,16 +15,14 @@ module Borkenstein
     "Borkenstein (CSV)"
   end
 
-  def self.detect(data)
-     0 # TODO
+  def self.detect(file, opts={})
+    0 # TODO
   end
   
-  # parses a string from a foodsoft-file
-  # the parsed article is a simple hash
-  def self.parse(data)
+  def self.parse(file, opts={})
     global_manufacturer = nil
 
-    CSV.parse(data, {:col_sep => ",", :headers => false}) do |row|
+    CSV.new(file, {:col_sep => ",", :headers => false}).each do |row|
 
       # Set manufacturer
       if row[1] == "-"

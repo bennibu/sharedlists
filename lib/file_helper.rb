@@ -19,24 +19,41 @@ module FileHelper
   end
 
   # detect file format
-  def self.detect(data)
-    formats = file_formats.values
-    formats.sort_by! {|f| f::detect(data)}
-    formats.last
+  def self.detect(file, opts={})
+    file.set_encoding(opts[:encoding]) unless opts[:encoding].blank?
+    formats = file_formats.values.map {|f| file.rewind; [f, f::detect(file, opts)]}
+    formats.sort_by! {|f| f[1]}
+    file.rewind
+    formats.last[1] < 0.5 and raise Exception.new("Could not detect file-format, please select one.")
+    formats.last[0]
   end
 
   # parse file by type (one of #file_formats, or 'auto')
-  def self.parse(data, type='auto', &blk)
-    parser = (type == 'auto' ?  detect(data) : file_formats[type])
+  def self.parse(file, opts={}, &blk)
+    file.set_encoding(opts[:encoding]) unless opts[:encoding].blank?
+    parser = ( (opts[:type].nil? or opts[:type]=='auto') ? detect(file, opts) : file_formats[opts[:type]])
     # TODO handle wrong or undetected type
-    parser::parse(data, &blk)
+    parser::parse(file, opts, &blk)
   end
 
   # return most probable column separator character from first line
-  def self.csv_guess_col_sep(data)
+  def self.csv_guess_col_sep(file)
     seps = [",", ";", "\t", "|"]
-    firstline = data[0..(data.index("\n")||-1)]
+    position = file.tell
+    firstline = file.readline
+    file.seek(position)
     seps.map {|x| [firstline.count(x),x]}.sort_by {|x| -x[0]}[0][1]
+  end
+
+  # read file until start of regexp
+  def self.skip_until(file, regexp)
+    begin
+      file.eof? and return nil
+      position = file.tell
+      line = file.readline
+    end until line.match regexp
+    file.seek(position)
+    file
   end
 
 end

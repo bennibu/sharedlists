@@ -8,16 +8,18 @@ module BdtotaalFile
     "BD-Totaal (CSV)"
   end
 
-  def self.detect(data)
+  def self.detect(file, opts={})
     # when there is a line starting with BD-Totaal
-    data[0..200].match(/(^|\n)\s*BD-Totaal/m) ? 0.9 : 0
+    file.read(200).match(/(^|\n)\s*BD-Totaal/m) ? 0.9 : 0
   end
   
   # the parsed article is a simple hash
-  def self.parse(data)
-    data.gsub! /^.*?\n\s*(Artikelcode)/m, '\1' # first couple of lines may be a header
-    headclean = Proc.new {|x| x.gsub /^\s*(.*?)\s*$/, '\1'} # remove whitespace around headers
-    CSV.parse(data, {:col_sep => FileHelper.csv_guess_col_sep(data), :headers => true, :header_converters => headclean}) do |row|
+  def self.parse(file, opts={})
+    # first few lines may be contact info
+    col_sep = FileHelper.csv_guess_col_sep(file)
+    FileHelper.skip_until file, /^\s*Artikelcode/
+    headclean = Proc.new {|x| x.gsub(/^\s*(.*?)\s*$/, '\1') unless x.nil?} # remove whitespace around headers
+    CSV.new(file, {:col_sep => col_sep, :headers => true}).each do |row|
       # skip empty lines
       row[0].blank? and next
 
@@ -55,7 +57,7 @@ module BdtotaalFile
 
   # remove currency symbol from price
   def self.parse_price(price)
-    price.gsub(/^\s*[^0-9]+\s*/, '').to_f
+    price.gsub(/^\s*[^0-9]+\s*/, '').to_f unless price.nil?
   end
 
   # some manufacturer names actually contain extra product info
@@ -93,6 +95,8 @@ module BdtotaalFile
   # sometimes the order is unclear, so we compare the price of one unit with
   # the price of the full pack
   def self.parse_inhoud(s, unit_price, pack_price, category)
+    s.nil? and return 1, nil, unit_price
+
     s.gsub! /^\s+/, ''; s.gsub! /\s+$/, ''
     s.gsub! /,/, '.' # use decimal point
     s.gsub! /^per\s*/i, '' and return 1, s, unit_price

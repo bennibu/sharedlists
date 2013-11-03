@@ -101,8 +101,9 @@ class ArticlesController < ApplicationController
     Article.transaction do
       Article.delete_all :supplier_id => @supplier.id unless params[:delete_existing].blank?
 
+      file = params[:articles]['file'].tempfile
       @outlisted_counter, @new_counter, @updated_counter, @invalid_articles =
-          @supplier.update_articles_from_file(params[:articles]["file"].read, params[:type], params[:character_set])
+          @supplier.update_articles_from_file(file, type: params[:type], encoding: params[:character_set])
 
       if @invalid_articles.empty?
         flash[:notice] = "Hochladen erfolgreich: #{@new_counter} neue, #{@updated_counter} aktualisiert und #{@outlisted_counter} ausgelistet."

@@ -37,14 +37,15 @@ module BnnFile
     "BNN (CSV)"
   end
 
-  def self.detect(data)
+  def self.detect(file, opts={})
+    opts[:encoding].blank? and file.set_encoding('IBM850')
     0 # TODO don't know how to detect this
   end
   
-  # parses a string from a bnn-file
-  # the parsed article is a simple hash
-  def self.parse(data)
-    CSV.parse(data, {:col_sep => ";", :headers => true}) do |row|
+  # parses a bnn-file
+  def self.parse(file, opts={})
+    opts[:encoding].blank? and file.set_encoding('IBM850')
+    CSV.new(file, {:col_sep => ';', :headers => true}).each do |row|
       # check if the line is empty
       unless row[0] == "" || row[0].nil?
         article = {

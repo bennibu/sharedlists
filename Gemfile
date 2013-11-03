@@ -7,6 +7,7 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'will_paginate', '~> 3.0'
 gem 'whenever', :require => false
 gem 'jquery-rails'
+gem 'nokogiri'
 
 # Needed for the new asset pipeline
 group :assets do
