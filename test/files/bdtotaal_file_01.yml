@@ -2,12 +2,11 @@
 - :number: '10000'
   :name: Aardpeer
   :note: DEM
-  :manufacturer: 
   :origin: Nederland
   :unit: 1x5 kg
-  :price: 
+  :price: 28.17
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: AARDAPPELS
 - :number: '10001'
@@ -16,31 +15,29 @@
   :manufacturer: VastLaag
   :origin: Nederland
   :unit: 1x25 kg
-  :price: 
+  :price: 48.84
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: AARDAPPELS
 - :number: '10002'
   :name: Bionica vast
   :note: DEM
-  :manufacturer: 
   :origin: Nederland
-  :unit: 1x15 kg
-  :price: 
+  :unit: 15 kg
+  :price: 37.51
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: AARDAPPELS
 - :number: '10003'
   :name: Ditta maaltje (verpakt)
   :note: EKO
-  :manufacturer: ''
   :origin: Nederland
-  :unit: 10x1 kg
-  :price: 
-  :unit_quantity: 1
-  :tax: '6'
+  :unit: 1 kg
+  :price: 3.749
+  :unit_quantity: 10
+  :tax: 6
   :deposit: 0
   :category: AARDAPPELS
 - :number: '10004'
@@ -49,42 +46,39 @@
   :manufacturer: Salamita
   :origin: Italie
   :unit: 1x10 kg
-  :price: 
+  :price: 13.46
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: AARDAPPELS
 - :number: '10005'
   :name: Portabella (los)
   :note: EKO
-  :manufacturer: ''
   :origin: Nederland
-  :unit: 1x1.5 kg
-  :price: 
+  :unit: 1.5 kg
+  :price: 25.41
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: PADDESTOELEN
 - :number: '10006'
   :name: Portabella (verpakt)
   :note: EKO
-  :manufacturer: ''
   :origin: Nederland
-  :unit: 4x2 st
-  :price: 
-  :unit_quantity: 1
-  :tax: '6'
+  :unit: 2 st
+  :price: 1.82
+  :unit_quantity: 4
+  :tax: 6
   :deposit: 0
   :category: PADDESTOELEN
 - :number: '10007'
   :name: Andijvie
   :note: BIO
-  :manufacturer: 
   :origin: Spanje
-  :unit: 1x10 st
-  :price: 
+  :unit: 10 st
+  :price: 27.4
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: GROENTE
 - :number: '10008'
@@ -93,31 +87,29 @@
   :manufacturer: Agrilatina
   :origin: Italie
   :unit: 1x10 st
-  :price: 
+  :price: 13.43
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: GROENTE
 - :number: '10009'
   :name: Artisjokken (150 gr)
   :note: BIO
-  :manufacturer: ''
   :origin: Spanje
-  :unit: 1x1 st
-  :price: 
+  :unit: 1 st
+  :price: 1.15
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: GROENTE
 - :number: '10010'
   :name: Aubergine (los)
   :note: BIO
-  :manufacturer: ''
   :origin: Spanje
   :unit: 1x3 kg
-  :price: 
+  :price: 15.59
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: GROENTE
 - :number: '10011'
@@ -125,43 +117,40 @@
   :note: EKO
   :manufacturer: Herbio
   :origin: Belgie
-  :unit: 1x1 st
-  :price: 
+  :unit: 1 st
+  :price: 3.14
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: KRUIDENPLANTJES POT
 - :number: '10012'
   :name: Blauwe bessen
   :note: BIO
-  :manufacturer: 
   :origin: Argentinie
   :unit: 12x125 gr
-  :price: 
+  :price: 16.51
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: ZACHT FRUIT
 - :number: '10013'
   :name: Druiven wit pitloos (verpakt)
   :note: BIO
-  :manufacturer: ''
   :origin: Zuid-Amerika
   :unit: 10x400 gr
-  :price: 
+  :price: 78.23
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: ZACHT FRUIT
 - :number: '10014'
   :name: Pinda's (dop) (in dop)
   :note: BIO
-  :manufacturer: ''
   :origin: Egypte
   :unit: 15x250 gr
-  :price: 
+  :price: 61.64
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: NOTEN
 - :number: '10015'
@@ -169,10 +158,10 @@
   :note: BIO
   :manufacturer: Provamel
   :origin: Belgie
-  :unit: 1x4x125 gr
-  :price: 
+  :unit: 4x125 gr
+  :price: 1.81
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: ZUIVEL SOYA
 - :number: '10016'
@@ -181,9 +170,9 @@
   :manufacturer: Bedeco
   :origin: Nederland
   :unit: 25x10 pl
-  :price: 
+  :price: 130.69
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: KAAS GESNEDEN
 - :number: '10017'
@@ -192,9 +181,9 @@
   :manufacturer: Zuiver Z.
   :origin: Nederland
   :unit: 10x100 gr
-  :price: 
+  :price: 33.68
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: KAAS GERASPT
 - :number: '10018'
@@ -202,10 +191,10 @@
   :note: BIO
   :manufacturer: Bioverde
   :origin: Duitsland
-  :unit: 1x8x25 gr
-  :price: 
+  :unit: 8x25 gr
+  :price: 5.58
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: KAAS SMEERKAAS
 - :number: '10019'
@@ -214,9 +203,9 @@
   :manufacturer: Soto
   :origin: Duitsland
   :unit: 6x5x30gr
-  :price: 
+  :price: 0.45
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: SNACKS VEG. DIEPVRIES
 - :number: '10020'
@@ -224,10 +213,10 @@
   :note: EKO
   :manufacturer: Moreganic
   :origin: MAX HAVELAAR
-  :unit: 2x2.25 ltr
-  :price: 
-  :unit_quantity: 1
-  :tax: '6'
+  :unit: 2.25 ltr
+  :price: 17.43
+  :unit_quantity: 2
+  :tax: 6
   :deposit: 0
   :category: IJS
 - :number: '10021'
@@ -236,31 +225,29 @@
   :manufacturer: Zonnelied
   :origin: Nederland
   :unit: stuk
-  :price: 
+  :price: 0.64
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: BROOD MALS GIST
 - :number: '10022'
   :name: Ossehaas schoon
   :note: EKO
   :manufacturer: Groene weg
-  :origin: 
-  :unit: 1x1 kg
-  :price: 
+  :unit: 1 kg
+  :price: 40.01
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: RUNDVLEES
 - :number: '10023'
   :name: Vliesvlees rund
   :note: EKO
   :manufacturer: Groene weg
-  :origin: 
   :unit: 1x20 kg
-  :price: 
+  :price: 154.83
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: RUNDVLEES
 - :number: '10024'
@@ -269,9 +256,9 @@
   :manufacturer: Op bestelling
   :origin: Nederland
   :unit: 8 kg
-  :price: 
+  :price: 217.21
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: LAMSVLEES
 - :number: '10025'
@@ -279,10 +266,10 @@
   :note: EKO
   :manufacturer: Groene Weg
   :origin: Nederland
-  :unit: 1x1 kg
-  :price: 
+  :unit: 1 kg
+  :price: 20.58
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: VLEESWAAR GESN. PRIJS/KG
 - :number: '10026'
@@ -290,43 +277,40 @@
   :note: EKO
   :manufacturer: Groene Weg
   :origin: Nederland
-  :unit: 1x10 plaks
-  :price: 
+  :unit: '10'
+  :price: 1.56
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: VLEESWAAR GESN. PRIJS/KG
 - :number: '10027'
   :name: Achterham G
   :note: EKO
   :manufacturer: Groene Weg
-  :origin: 
-  :unit: 1x10 plakken
-  :price: 
+  :unit: '10'
+  :price: 6.0
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: VLEESWAAR GESN. PRIJS/KG
 - :number: '10028'
   :name: Achterham G
   :note: EKO
   :manufacturer: Groene weg
-  :origin: 
-  :unit: 1x100 gr
-  :price: 
+  :unit: 100 gr
+  :price: 0.13
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: VLEESWAAR GESN. PRIJS/KG
 - :number: '10029'
   :name: Parma ham G
   :note: EKO
   :manufacturer: Groene Weg
-  :origin: 
-  :unit: 1x10 plakk
-  :price: 
+  :unit: '10'
+  :price: 9.76
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: VLEESWAAR GESN. PRIJS/KG
 - :number: '10030'
@@ -335,20 +319,19 @@
   :manufacturer: Groene weg
   :origin: Nederland
   :unit: 1x3 ltr
-  :price: 
+  :price: 26.06
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: SOEP VERS/QUICHE
 - :number: '10031'
   :name: Tarwe fijnmeel
   :note: EKO
   :manufacturer: Ekoland
-  :origin: 
-  :unit: 6x1 kg
-  :price: 
-  :unit_quantity: 1
-  :tax: '6'
+  :unit: 1 kg
+  :price: 4.2316666666666665
+  :unit_quantity: 6
+  :tax: 6
   :deposit: 0
   :category: MELEN
 - :number: '10032'
@@ -356,10 +339,10 @@
   :note: DEM
   :manufacturer: Bedeco
   :origin: Nederland
-  :unit: 1x5 kg
-  :price: 
+  :unit: 5 kg
+  :price: 9.39
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: MELEN
 - :number: '10033'
@@ -368,9 +351,9 @@
   :manufacturer: Loverendale
   :origin: Duitsland
   :unit: 6x1 ltr
-  :price: 
+  :price: 7.29
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: VRUCHTENSAP LOVERENDALE
 - :number: '10034'
@@ -379,140 +362,124 @@
   :manufacturer: Loverendale
   :origin: Duitsland
   :unit: 6x700 ml
-  :price: 
+  :price: 16.11
   :unit_quantity: 1
-  :tax: '6'
+  :tax: 6
   :deposit: 0
   :category: VRUCHTENSAP LOVERENDALE
 - :number: '10035'
   :name: Waspoeder Tech. Duty
-  :note: ''
   :manufacturer: Techno Gr.
-  :origin: 
   :unit: 1x10 kg
-  :price: 
+  :price: 3.88
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: ECOVER PROF. NON-FOOD
 - :number: '10036'
   :name: Vloeibaar wasm.Elite
-  :note: ''
   :manufacturer: Techno Gr.
-  :origin: 
   :unit: 4x3 ltr
-  :price: 
+  :price: 121.63
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: ECOVER PROF. NON-FOOD
 - :number: '10037'
   :name: Vloeibaar wasm.Elite
-  :note: ''
   :manufacturer: Techno Gr.
-  :origin: 
-  :unit: 1x5 ltr
-  :price: 
+  :unit: 5 ltr
+  :price: 19.35
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: ECOVER PROF. NON-FOOD
 - :number: '10038'
   :name: Schort bistro kort (zwart)
   :note: EKO
-  :manufacturer: ''
   :origin: India
   :unit: 50x90 cm
-  :price: 
+  :price: 5.86
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: KEUKENTEXTIEL OP BESTEL.
 - :number: '10039'
   :name: Draagtasje lange h. (ecru)
   :note: EKO
-  :manufacturer: ''
-  :origin: 
   :unit: 1x10 st.
-  :price: 
+  :price: 12.34
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: KEUKENTEXTIEL OP BESTEL.
 - :number: '10040'
   :name: Heren pique poloshirt (varengroen)
   :note: EKO
-  :manufacturer: ''
   :origin: Turkije
   :unit: M
-  :price: 
+  :price: 16.89
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: BEDRIJFSKLEDING OP BESTE.
 - :number: '10041'
   :name: Heren jersey poloshirt (taupe)
   :note: EKO
-  :manufacturer: ''
   :origin: Turkije
   :unit: M
-  :price: 
+  :price: 37.19
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: BEDRIJFSKLEDING OP BESTE.
 - :number: '10042'
   :name: Heren jersey poloshirt (taupe)
   :note: EKO
-  :manufacturer: ''
   :origin: India
   :unit: L
-  :price: 
+  :price: 43.88
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: BEDRIJFSKLEDING OP BESTE.
 - :number: '10043'
   :name: Heren jersey poloshirt (taupe)
   :note: EKO
-  :manufacturer: ''
   :origin: Turkije
   :unit: XL
-  :price: 
+  :price: 58.2
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: BEDRIJFSKLEDING OP BESTE.
 - :number: '10044'
   :name: Heren overhemd l.m. (ecru)
   :note: EKO
-  :manufacturer: ''
   :origin: Turkije
   :unit: 46(S)
-  :price: 
+  :price: 10.64
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: BEDRIJFSKLEDING OP BESTE.
 - :number: '10045'
   :name: Heren overhemd l.m. (ecru)
   :note: EKO
-  :manufacturer: ''
   :origin: Turkije
   :unit: 48(M)
-  :price: 
+  :price: 58.36
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: BEDRIJFSKLEDING OP BESTE.
 - :number: '10046'
   :name: Heren overhemd l.m. (ecru)
   :note: EKO
-  :manufacturer: ''
   :origin: Turkije
   :unit: 50(M/L)
-  :price: 
+  :price: 76.56
   :unit_quantity: 1
-  :tax: '21'
+  :tax: 21
   :deposit: 0
   :category: BEDRIJFSKLEDING OP BESTE.

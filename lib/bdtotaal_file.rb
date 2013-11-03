@@ -19,7 +19,7 @@ module BdtotaalFile
     col_sep = FileHelper.csv_guess_col_sep(file)
     FileHelper.skip_until file, /^\s*Artikelcode/
     headclean = Proc.new {|x| x.gsub(/^\s*(.*?)\s*$/, '\1') unless x.nil?} # remove whitespace around headers
-    CSV.new(file, {:col_sep => col_sep, :headers => true}).each do |row|
+    CSV.new(file, {:col_sep => col_sep, :headers => true, :header_converters => headclean}).each do |row|
       # skip empty lines
       row[0].blank? and next
 
@@ -57,7 +57,7 @@ module BdtotaalFile
 
   # remove currency symbol from price
   def self.parse_price(price)
-    price.gsub(/^\s*[^0-9]+\s*/, '').to_f unless price.nil?
+    price.gsub(/^\s*[^0-9]+\s*/, '').gsub(',','.').to_f
   end
 
   # some manufacturer names actually contain extra product info
