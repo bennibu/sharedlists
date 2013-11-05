@@ -17,6 +17,8 @@ module VriesiaFile
 
   def self.parse(file, opts={})
     CSV.new(file, {:col_sep => FileHelper.csv_guess_col_sep(file), :headers => true}).each do |row|
+      # skip dummy-product
+      row['Omschrijving'] and row['Omschrijving'].match /Betalingskorting/ and next
       # create a new article
       unit = row['Inhoud'] and unit = unit.downcase
       name = proper_name(row['Omschrijving'])
