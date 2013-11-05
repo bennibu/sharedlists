@@ -15,6 +15,7 @@ module FileHelper
       'terrasana' => TerrasanaFile,
       'bdtotaal' => BdtotaalFile,
       'wimbijma' => WimbijmaCsvFile,
+      'vriesia' => VriesiaFile,
     }
   end
 
