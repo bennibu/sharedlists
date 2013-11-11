@@ -1,0 +1,125 @@
+---
+- :number: '0204'
+  :name: brandnetelkaas
+  :note: Biologisch
+  :manufacturer: Aurora Gold
+  :origin: NL
+  :unit: kg
+  :price: 9.25
+  :unit_quantity: 4.5
+  :tax: 6
+  :deposit: 0
+- :number: '0252'
+  :name: schapenkaas
+  :note: Biologisch
+  :manufacturer: Aurora Gold
+  :origin: NL
+  :unit: kg
+  :price: 12.60
+  :unit_quantity: 4.5
+  :tax: 6
+  :deposit: 0
+- :number: 0386
+  :name: chocolademelk halfvol
+  :note: Biologisch
+  :manufacturer: Landgoed
+  :unit: ltr
+  :price: 2.80
+  :unit_quantity: 12
+  :tax: 6
+  :deposit: 0
+- :number: 0381
+  :name: melk, halfvolle
+  :note: Biologisch
+  :manufacturer: Landgoed
+  :origin: DK
+  :unit: ltr
+  :price: 2.00
+  :unit_quantity: 12
+  :tax: 6
+  :deposit: 0
+- :number: '2450'
+  :name: ricedrink naturel (fles)
+  :note: Biologisch
+  :manufacturer: Lima
+  :unit: ltr
+  :price: 2.05
+  :unit_quantity: 6
+  :tax: 6
+  :deposit: 0
+- :number: '5274'
+  :name: quinoa fairtrade
+  :note: Biologisch
+  :manufacturer: Joannusmolen
+  :origin: BO
+  :unit: 350gr
+  :price: 3.80
+  :unit_quantity: 6
+  :tax: 6
+  :deposit: 0
+- :number: '6519'
+  :name: taboulé
+  :note: Biologisch
+  :manufacturer: Primeal
+  :unit: 300gr
+  :price: 1.50
+  :unit_quantity: 6
+  :tax: 6
+  :deposit: 0
+- :number: 0729
+  :name: maïsvlokken
+  :note: Biologisch
+  :manufacturer: De Halm
+  :origin: NL
+  :unit: 500gr
+  :price: 2.60
+  :unit_quantity: 6
+  :tax: 6
+  :deposit: 0
+- :number: '1153'
+  :name: pruimen d'agen z.pit
+  :note: Biologisch
+  :manufacturer: TerraSana
+  :origin: FR
+  :unit: 250gr
+  :price: 5.00
+  :unit_quantity: 12
+  :tax: 6
+  :deposit: 0
+- :number: '6852'
+  :name: walnotenolie
+  :note: Biologisch
+  :manufacturer: Emile Noël
+  :origin: FR
+  :unit: 250ml
+  :price: 2.22
+  :unit_quantity: 6
+  :tax: 6
+  :deposit: 0
+- :number: '7350'
+  :name: kardemom
+  :note: Biologisch
+  :manufacturer: Cook
+  :unit: 25gr
+  :price: 4.44
+  :unit_quantity: 3
+  :tax: 6
+  :deposit: 0
+- :number: '7301'
+  :name: kardemom gemalen
+  :note: Biologisch
+  :manufacturer: Cook
+  :unit: 35gr
+  :price: 1.11
+  :unit_quantity: 3
+  :tax: 6
+  :deposit: 0
+- :number: '7025'
+  :name: afwasmiddel kamille-melkwei
+  :note: Niet-biologisch
+  :manufacturer: Ecover
+  :unit: 25ltr
+  :price: 12.34
+  :unit_quantity: 1
+  :tax: 21
+  :deposit: 5.00

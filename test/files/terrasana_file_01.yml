@@ -1,0 +1,176 @@
+---
+- :number: '1352540'
+  :name: AP Kotobuki Matcha 100% Theeblad Poeder
+  :note: BIO
+  :manufacturer: Amanprana
+  :unit: 50gr
+  :price: 10.2
+  :unit_quantity: 4
+  :tax: 6
+  :deposit: 0
+  :category: THEE (JAJA)
+- :number: '1352550'
+  :name: AP Kotobuki Earl Grey 100% Theeblad Poeder
+  :note: BIO
+  :manufacturer: Amanprana
+  :unit: 50gr
+  :price: 23.2
+  :unit_quantity: 4
+  :tax: 6
+  :deposit: 0
+  :category: THEE (JAJA)
+- :number: '1703040'
+  :name: Chips Pomm Provençaalse kruiden
+  :note: EKO
+  :manufacturer: TerraSana
+  :unit: 125gr
+  :price: 2.10
+  :unit_quantity: 12
+  :tax: 6
+  :deposit: 0
+  :category: CHIPS AARDAPPEL QUICK FRIED BETTER TASTE
+- :number: '2521000'
+  :name: Wasnoten in emmer + 3 navulzakjes
+  :manufacturer: Muko
+  :unit: kg
+  :price: 5
+  :unit_quantity: 1
+  :tax: 21
+  :deposit: 0
+  :category: WASMIDDELEN
+- :number: '2507305'
+  :name: Deo Roll-on Acai Energy
+  :note: BDIH/NaTrue
+  :manufacturer: SANTE
+  :unit: 50ml
+  :price: 2.22
+  :unit_quantity: 4
+  :tax: 21
+  :deposit: 0
+  :category: BODY CARE DEO'S
+- :number: '2507315'
+  :name: Deo Spray Goji Power
+  :note: BDIH/NaTrue
+  :manufacturer: SANTE
+  :unit: 100ml
+  :price: 5.55
+  :unit_quantity: 4
+  :tax: 21
+  :deposit: 0
+  :category: BODY CARE DEO'S
+- :number: '2507325'
+  :name: Kristall Deo Roll-on Pure Spirit
+  :note: BDIH
+  :manufacturer: SANTE
+  :unit: 50ml
+  :price: 3.33
+  :unit_quantity: 4
+  :tax: 21
+  :deposit: 0
+  :category: BODY CARE KRISTALL DEO
+- :number: '2507330'
+  :name: Kristall Deo Stick Pure Spirit
+  :note: BDIH
+  :manufacturer: SANTE
+  :unit: 100ml
+  :price: 1.11
+  :unit_quantity: 4
+  :tax: 21
+  :deposit: 0
+  :category: BODY CARE KRISTALL DEO
+- :number: '2506745'
+  :name: Homme I Douchegel Bio-Aloë & witte Thee Body & Hair
+  :note: BDIH
+  :manufacturer: SANTE
+  :unit: 200ml
+  :price: 1
+  :unit_quantity: 4
+  :tax: 21
+  :deposit: 0
+  :category: MAN CARE I Aloë & Witte thee
+- :number: '2506705'
+  :name: Homme I Scheerschuim Bio-Aloë & witte Thee
+  :note: BDIH/NaTrue
+  :manufacturer: SANTE
+  :unit: 150ml
+  :price: 2.5
+  :unit_quantity: 4
+  :tax: 21
+  :deposit: 0
+  :category: MAN CARE I Aloë & Witte thee
+- :number: '2602010'
+  :name: Proefsachet Homme II Douchegel Body & hair
+  :note: BDIH
+  :manufacturer: SANTE
+  :unit: 5ml
+  :price: 1
+  :unit_quantity: 10
+  :tax: 21
+  :deposit: 0
+  :category: MAN CARE II Caffeine & Acai
+- :number: '2501598'
+  :name: kinder Schmink potlood zwart
+  :note: BDIH
+  :manufacturer: SANTE
+  :unit: 5gr
+  :price: 1
+  :unit_quantity: 4
+  :tax: 21
+  :deposit: 0
+  :category: KINDER SCHMINK
+- :number: '2501580'
+  :name: kinder Schmink potje groen
+  :note: BDIH/NaTrue
+  :manufacturer: SANTE
+  :unit: 6ml
+  :price: 2
+  :unit_quantity: 4
+  :tax: 21
+  :deposit: 0
+  :category: KINDER SCHMINK
+- :number: '2506610'
+  :name: Tandpasta mint
+  :note: BDIH/NaTrue
+  :manufacturer: SANTE
+  :unit: 75ml
+  :price: 2
+  :unit_quantity: 6
+  :tax: 21
+  :deposit: 0
+  :category: TANDPASTA
+- :number: '2707614'
+  :name: Dentie Tandpoeder   *Op basis van verkoolde Aubergine & Zeezout*
+  :manufacturer: Muso
+  :unit: 50gr
+  :price: 1.3
+  :unit_quantity: 12
+  :tax: 21
+  :deposit: 0
+  :category: TANDPASTA
+- :number: '2707602'
+  :name: Dentie Tandpasta   *Op basis van verkoolde Aubergine & Zeezout*
+  :manufacturer: Muso
+  :unit: 80gr
+  :price: 1.35
+  :unit_quantity: 12
+  :tax: 21
+  :deposit: 0
+  :category: TANDPASTA
+- :number: '2601230'
+  :name: Boek Culinaire Specialiteiten uit Japan
+  :manufacturer: TerraSana
+  :unit: st
+  :price: 6.5
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: BOEKEN
+- :number: '2601190'
+  :name: Boekje De Betere Wereld
+  :manufacturer: De Betere Wereld
+  :unit: st
+  :price: 5
+  :unit_quantity: 1
+  :tax: 6
+  :deposit: 0
+  :category: BOEKEN

@@ -1,0 +1,6 @@
+status;number;name;note;manufacturer;origin;unit ;clear price;tax;deposit;unit quantity;scale quantity;scale price;category
+;0301;jonge kaas;bio;Terschellinger;nld;1 kg;9.99;6;0;10;;;kaas
+;0386;chocolademelk halfvol;bio;Landgoed;;1 l;1.1;6;0;12;;;zuivel
+;1398;sojadrink;bio;Bruno Fischer;;750 ml;0.22;6;0;6;;;zuivelvervangers
+;0619;penne, volkoren;bio;Castagno;ita;500 g;1.23;6;0;12;;;pasta
+;1818;budels pilsener;bio;Budels;;30 cl;0.66;21;0.1;24;;;bier

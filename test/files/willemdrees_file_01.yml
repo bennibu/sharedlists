@@ -1,0 +1,79 @@
+---
+- :number: appbas07
+  :name: appels los Elstar
+  :unit: kg
+  :price: 1.23
+  :unit_quantity: 7
+  :tax: 6
+  :deposit: 0
+  :category: Hardfruit
+- :number: appbas03
+  :name: appels los Elstar
+  :note: doos
+  :unit: kg
+  :price: 0.12
+  :unit_quantity: 3
+  :tax: 6
+  :deposit: 0
+  :category: Hardfruit
+- :number: appsr071
+  :name: appels los Gala
+  :unit: kg
+  :price: 2.34
+  :unit_quantity: 7
+  :tax: 6
+  :deposit: 0
+  :category: Hardfruit
+- :number: app04
+  :name: seizoensappel in zak Gala
+  :unit: 1.5 kg
+  :price: 1.21
+  :unit_quantity: 8
+  :tax: 6
+  :deposit: 0
+  :category: Hardfruit
+- :number: loshsp001
+  :name: hoogstam peren
+  :note: div oude perenrassen; (op bestelling, extra leverdag)
+  :unit: 12 kg
+  :price: 1.9
+  :unit_quantity: 12
+  :tax: 6
+  :deposit: 0
+  :category: Hardfruit
+- :number: loshsgoud001
+  :name: hoogstam Goudreinetten
+  :note: Rode van Boskoop; (op bestelling, extra leverdag)
+  :unit: 13 kg
+  :price: 8.76
+  :unit_quantity: 13
+  :tax: 6
+  :deposit: 0
+  :category: Hardfruit
+- :number: losaard002
+  :name: biologische aardappels (iets kruimig)
+  :note: Agria; (op bestelling, extra leverdag)
+  :unit: 15 kg
+  :price: 1.51
+  :unit_quantity: 15
+  :tax: 6
+  :deposit: 0
+  :category: Aardappels
+- :number: lospapp001
+  :name: biologische puntpaprika los
+  :note: rood; (op bestelling, extra leverdag)
+  :unit: 16 st
+  :price: 0.1
+  :unit_quantity: 16
+  :tax: 6
+  :deposit: 0
+  :category: Vruchtgewassen
+- :number: sapap01
+  :name: saptap appel-peer
+  :note: doos
+  :unit: 5 liter
+  :price: 4.44
+  :unit_quantity: 4
+  :tax: 6
+  :deposit: 0
+  :category: Saptappen

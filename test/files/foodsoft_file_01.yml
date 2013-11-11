@@ -1,0 +1,51 @@
+---
+- :number: '0301'
+  :name: jonge kaas
+  :note: bio
+  :manufacturer: Terschellinger
+  :origin: nld
+  :unit: 1 kg
+  :price: 9.99
+  :tax: 6
+  :unit_quantity: 10
+  :deposit: 0
+- :number: 0386
+  :name: chocolademelk halfvol
+  :note: bio
+  :manufacturer: Landgoed
+  :origin: 
+  :unit: 1 l
+  :price: 1.1
+  :tax: 6
+  :unit_quantity: 12
+  :deposit: 0
+- :number: '1398'
+  :name: sojadrink
+  :note: bio
+  :manufacturer: Bruno Fischer
+  :origin: 
+  :unit: 750 ml
+  :price: 0.22
+  :tax: 6
+  :unit_quantity: 6
+  :deposit: 0
+- :number: 0619
+  :name: penne, volkoren
+  :note: bio
+  :manufacturer: Castagno
+  :origin: ita
+  :unit: 500 g
+  :price: 1.23
+  :tax: 6
+  :unit_quantity: 12
+  :deposit: 0
+- :number: '1818'
+  :name: budels pilsener
+  :note: bio
+  :manufacturer: Budels
+  :origin: 
+  :unit: 30 cl
+  :price: 0.66
+  :tax: 21
+  :unit_quantity: 24
+  :deposit: 0.10
