@@ -16,6 +16,7 @@ module FileHelper
       'bdtotaal' => BdtotaalFile,
       'wimbijma' => WimbijmaCsvFile,
       'vriesia' => VriesiaFile,
+      'willemdrees' => WillemdreesFile,
     }
   end
 
