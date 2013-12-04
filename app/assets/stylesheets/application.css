@@ -1,3 +1,16 @@
 /*
  = require scaffold
 */
+
+.simple_form label {
+  width: 160px;
+  text-align: right;
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding-top: 2.5px;
+}
+.simple_form input {
+  margin-bottom: 10px;
+}

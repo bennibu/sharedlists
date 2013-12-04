@@ -8,6 +8,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'jquery-rails'
 gem 'whenever', '~> 0.9', require: false
 gem 'test-unit' # FIXME: This is needed in production to run the console. Why?
+gem 'simple_form'
 
 # Needed for the new asset pipeline
 group :assets do

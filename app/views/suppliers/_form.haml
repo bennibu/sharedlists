@@ -1,54 +1,30 @@
-%p
-  Name:
-  %br/
-  = f.text_field :name
-%p
-  Adresse:
-  %br/
-  = f.text_field :address
-%p
-  Telefon 1:
-  %br/
-  = f.text_field :phone
-%p
-  Telefon 2:
-  %br/
-  = f.text_field :phone2
-%p
-  Fax:
-  %br/
-  = f.text_field :fax
-%p
-  E-Mail:
-  %br/
-  = f.text_field :email
-%p
-  Webseite:
-  %br/
-  = f.text_field :url
-%p
-  Liefertage:
-  %br/
-  = f.text_field :delivery_days
-%p
-  Notiz:
-  %br/
-  = f.text_area :note
-%p
-  Synchronisiere BNN Dateien:
-  %br/
-  = f.check_box :bnn_sync
-%p
-  BNN host:
-  %br/
-  = f.text_field :bnn_host
-%p
-  BNN user:
-  %br/
-  = f.text_field :bnn_user
-%p
-  BNN password:
-  %br/
-  = f.text_field :bnn_password
+= simple_form_for @supplier do |f|
+  = f.input :name
+  = f.input :address
+  = f.input :phone
+  = f.input :phone2
+  = f.input :fax
+  = f.input :email
+  = f.input :url
+  = f.input :delivery_days
+  /= f.input :order_howto, as: :text, input_html: {rows: 5}
+  = f.input :note, as: :text, input_html: {rows: 5, cols: 60}
+  /= f.input :min_order_quantity
+  /= f.input :article_info_url
 
-%p= submit_tag "Speichern"
+  = f.input :bnn_sync
+  %div#bnn_details{style: @supplier.bnn_sync ? '' : 'display: none'}
+    = f.input :bnn_host
+    = f.input :bnn_user
+    = f.input :bnn_password
+
+  .form-actions
+    = f.submit class: 'btn'
+    = link_to t('ui.or_cancel'), (@supplier.new_record? ? suppliers_path : supplier_path(@supplier))
+
+
+  - content_for :javascript do
+    :javascript
+      $(document).on('change', '#supplier_bnn_sync', function() {
+        $('#bnn_details').toggle(this.checked);
+      });

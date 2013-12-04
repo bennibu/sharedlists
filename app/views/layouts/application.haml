@@ -3,7 +3,6 @@
   %head
     %meta{"http-equiv" => "content-type", :content => "text/html;charset=UTF-8"}
     %title=h "SharedLists: " + controller.controller_name
-    = javascript_include_tag 'application'
     = stylesheet_link_tag 'application'
     = csrf_meta_tag
   %body
@@ -19,3 +18,6 @@
         Logged in as #{current_user.email}, #{link_to("log out", log_out_path)}
       - else
         = link_to "Log in", log_in_path
+
+    = javascript_include_tag 'application'
+    = yield :javascript

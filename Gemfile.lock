@@ -91,6 +91,9 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    simple_form (2.1.1)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.2.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -125,6 +128,7 @@ DEPENDENCIES
   mysql2 (= 0.3.18)
   rails (= 3.2.22)
   sass-rails (~> 3.2.3)
+  simple_form
   test-unit
   therubyracer
   uglifier (>= 1.0.3)
