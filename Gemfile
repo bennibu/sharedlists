@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.16'
 gem "haml"
 gem "mysql2"
 gem "bcrypt-ruby", :require => "bcrypt"
