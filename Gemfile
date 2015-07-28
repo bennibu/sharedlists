@@ -1,8 +1,10 @@
 source "http://rubygems.org"
 
-gem 'rails', '3.2.18'
+ruby '2.1.6'
+
+gem 'rails', '3.2.22'
 gem "haml"
-gem "mysql2"
+gem "mysql2", '0.3.18'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'will_paginate', '~> 3.0'
 gem 'whenever', :require => false
@@ -14,8 +16,4 @@ group :assets do
   gem 'sass-rails',   "~> 3.2.3"
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier',     ">= 1.0.3"
-end
-
-group :development do
-  gem 'capistrano', "~> 2.15.0"
 end
