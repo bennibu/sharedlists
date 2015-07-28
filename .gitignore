@@ -16,3 +16,4 @@ config/initializers/secret_token.rb
 # Capistrano etc
 Capfile
 config/deploy.rb
+Gemfile.capistrano*

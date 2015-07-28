@@ -1,0 +1,15 @@
+app: &app
+  build: .
+  volumes:
+    - .:/usr/src/app
+  ports:
+    - "3000:3000"
+  links:
+    - mysql
+
+mysql:
+  image: mysql:5.5
+  volumes:
+    - ~/.docker-volumes/sharedlists/mysql:/var/lib/mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=secret

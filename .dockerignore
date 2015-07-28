@@ -1,0 +1,10 @@
+.git
+.idea
+log
+public/assets
+public/system
+public/uploads
+tmp/*
+vendor/bundle
+coverage
+tags
