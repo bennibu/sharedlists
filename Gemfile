@@ -1,7 +1,5 @@
 source "http://rubygems.org"
 
-ruby '2.1.6'
-
 gem 'rails', '3.2.22'
 gem "haml"
 gem "mysql2", '0.3.18'
