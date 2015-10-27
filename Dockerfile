@@ -1,10 +1,4 @@
-FROM ruby:2.1.6
-
-RUN apt-get update && \
-  apt-get install --no-install-recommends -y \
-    mysql-client nodejs && \
-  rm -rf /var/lib/apt/lists/* && \
-  apt-get clean
+FROM aboutsource/ruby-extras:2.1
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
