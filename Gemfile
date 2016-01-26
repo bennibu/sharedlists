@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 gem 'rails', '3.2.22'
 gem "haml"
@@ -6,6 +6,7 @@ gem "mysql2", '0.3.18'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'will_paginate', '~> 3.0'
 gem 'jquery-rails'
+gem 'whenever', '~> 0.9', require: false
 
 # Needed for the new asset pipeline
 group :assets do
