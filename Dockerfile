@@ -1,4 +1,4 @@
-FROM aboutsource/ruby-extras:2.1
+FROM aboutsource/ruby-extras:2.3
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

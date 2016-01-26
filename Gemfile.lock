@@ -31,7 +31,6 @@ GEM
     arel (3.0.3)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
-    chronic (0.9.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -59,6 +58,7 @@ GEM
     multi_json (1.11.2)
     mysql2 (0.3.18)
     polyglot (0.3.5)
+    power_assert (0.2.7)
     rack (1.4.7)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -95,6 +95,8 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    test-unit (3.1.7)
+      power_assert
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
@@ -107,9 +109,6 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    whenever (0.8.2)
-      activesupport (>= 2.3.4)
-      chronic (>= 0.6.3)
     will_paginate (3.0.4)
 
 PLATFORMS
@@ -123,10 +122,10 @@ DEPENDENCIES
   mysql2 (= 0.3.18)
   rails (= 3.2.22)
   sass-rails (~> 3.2.3)
+  test-unit
   therubyracer
   uglifier (>= 1.0.3)
-  whenever
   will_paginate (~> 3.0)
 
 BUNDLED WITH
-   1.10.4
+   1.11.2
