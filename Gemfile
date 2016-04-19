@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-gem 'rails', '3.2.22'
+gem 'rails', '~> 3.2.22'
 gem "haml"
-gem "mysql2", '0.3.18'
+gem "mysql2", '~> 0.3.1' # compatible with rails 3
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'will_paginate', '~> 3.0'
 gem 'jquery-rails'
