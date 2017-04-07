@@ -7,6 +7,7 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'will_paginate', '~> 3.0'
 gem 'jquery-rails'
 gem 'whenever', '~> 0.9', require: false
+gem 'test-unit' # FIXME: This is needed in production to run the console. Why?
 
 # Needed for the new asset pipeline
 group :assets do
@@ -14,8 +15,4 @@ group :assets do
   gem 'sass-rails',   "~> 3.2.3"
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier',     ">= 1.0.3"
-end
-
-group :development do
-  gem 'test-unit'
 end
