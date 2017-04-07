@@ -3,6 +3,7 @@ db/*.sqlite3
 log/*.log
 tmp/
 supplier_assets/**
+vendor/bundle
 
 # Do not store config in repo
 config/*.yml
@@ -12,6 +13,7 @@ config/initializers/secret_token.rb
 .idea
 .rbenv-version
 .get-dump.yml
+.bash_history
 
 # Capistrano etc
 Capfile

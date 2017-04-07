@@ -1,14 +1,25 @@
-FROM aboutsource/ruby-extras:2.3
+FROM alpine:3.5
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+ENV BUILD_PKGS="build-base ruby-dev libffi-dev libxml2-dev mariadb-dev" \
+    RUNTIME_PKGS="ruby ruby-json ruby-bigdecimal ruby-irb ruby-bundler ca-certificates mariadb-client" \
 
-COPY Gemfile /usr/src/app/
-COPY Gemfile.lock /usr/src/app/
-RUN bundle install --jobs 4
+RUN mkdir /srv/app
+WORKDIR /srv/app
+COPY . ./
 
-COPY . /usr/src/app
+RUN apk --no-cache add $RUNTIME_PKGS && \
+    apk --no-cache add --virtual .build-dependencies $BUILD_PKGS && \
+    bundle install --without development --jobs 4 && \
+    apk del .build-dependencies
+
+RUN bundle exec rake assets:precompile RAILS_ENV=test
+
+# Make tmp/log dirs writable for app user
+RUN chown nobody tmp log public/uploads
+
+# Run app as unpriviledged user
+USER nobody
 
 EXPOSE 3000
 
-CMD ["rails", "server", "--binding", "0.0.0.0"]
+CMD ["rails", "server", "--bind", "0.0.0.0"]

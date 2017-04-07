@@ -8,7 +8,8 @@ This app is used in conjunction with the [foodsoft](https://github.com/foodcoops
 
 Copy `config/database.yml.SAMPLE` to `config/database.yml` and
 
-    docker-compose run app rake db:Setup
+    docker-compose run app bundle
+    docker-compose run app rake db:setup
 
 ## Development
 
